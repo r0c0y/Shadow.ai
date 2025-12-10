@@ -198,7 +198,7 @@ tasks:
             pullPolicy: NEVER
             user: "1001" # Security Check
           env:
-            GEMINI_API_KEY: "AIzaSyBSLnSxhQxBDX0YPRQk4x4KBI9t2X5IjtM"
+            GEMINI_API_KEY: "{{ secret('GEMINI_API_KEY') }}"
           commands:
             - id;
             - echo "Initializing Agent Zero Git Identity..."
