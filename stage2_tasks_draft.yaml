@@ -1,0 +1,38 @@
+
+id: fetch_vercel_status
+type: io.kestra.plugin.scripts.python.Script
+inputFiles:
+  main.py: |
+    import json
+    from kestra import Kestra
+    
+    # Mock Vercel Data
+    print("Fetching Vercel status...")
+    Kestra.outputs({'status': 'ready', 'url': 'https://agent-zero-dashboard.vercel.app'})
+taskRunner:
+  type: io.kestra.plugin.scripts.runner.docker.Docker
+containerImage: python:3.11-slim
+---
+id: run_mcs_calculation
+type: io.kestra.plugin.scripts.python.Script
+inputFiles:
+  calculate_mcs.py: "{{ read('scripts/calculate_mcs.py') }}"
+  data.json: |
+    {
+      "coderabbit": { "status": "approvable" },
+      "vercel": { "status": "{{ outputs.fetch_vercel_status.vars.status }}" },
+      "codecov": { "coverage": 85 },
+      "shadow_agent": { "critical_issues": 0 }
+    }
+  main.py: |
+    import json
+    import sys
+    # Import the calculation logic
+    # (Assuming calculate_mcs.py is in path or we exec it)
+    sys.path.append('.')
+    from calculate_mcs import calculate_mcs
+    
+    calculate_mcs('data.json')
+taskRunner:
+  type: io.kestra.plugin.scripts.runner.docker.Docker
+containerImage: python:3.11-slim

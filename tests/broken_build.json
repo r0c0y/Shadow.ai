@@ -1,0 +1,15 @@
+{
+    "coderabbit": {
+        "status": "changes_requested"
+    },
+    "vercel": {
+        "status": "failed",
+        "url": "https://example.com"
+    },
+    "codecov": {
+        "coverage": 40
+    },
+    "shadow_agent": {
+        "critical_issues": 3
+    }
+}

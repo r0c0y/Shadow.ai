@@ -1,0 +1,18 @@
+# Node
+node_modules/
+.next/
+dist/
+out/
+
+# Rust
+target/
+**/*.rs.bk
+
+# Kestra/Docker
+.kestra/
+*.log
+infrastructure/mongo-data/
+
+# System
+.DS_Store
+.env
