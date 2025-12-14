@@ -16,6 +16,7 @@ import {
 
 export const navItems = [
     { name: "Overview", href: "/", icon: Home },
+    { name: "Hackathon Info", href: "/hackathon", icon: Zap },
     { name: "Documentation", href: "/docs", icon: Book },
     { name: "Kestra Integration", href: "/docs/kestra", icon: Zap },
     { name: "Cline CLI", href: "/docs/cline", icon: Code2 },

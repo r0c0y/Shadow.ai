@@ -124,6 +124,48 @@ export default function HackathonPage() {
                 </div>
             </div>
 
+            {/* FAQ Section */}
+            <div className="max-w-4xl mx-auto space-y-8">
+                <h3 className="text-2xl font-bold text-center">Frequently Asked Questions</h3>
+                <div className="space-y-4">
+                    <Card className="bg-[#0A0A0A] border-white/10">
+                        <CardHeader>
+                            <CardTitle className="text-lg">How does Agent Zero orchestrate tasks?</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-gray-400 text-sm">
+                            We use <span className="text-purple-400 font-semibold">Kestra</span> as our central nervous system. When the Chrome Extension or GitHub Webhook triggers an event, Kestra spins up parallel workflows to run security scans (SAST) and logic analysis (Gemini) simultaneously. If issues are found, it dispatches a <Link href="/docs/cline" className="text-blue-400 underline">Cline</Link> agent to fix them autonomously.
+                        </CardContent>
+                    </Card>
+
+                    <Card className="bg-[#0A0A0A] border-white/10">
+                        <CardHeader>
+                            <CardTitle className="text-lg">What makes this "Autonomous" vs just "Automated"?</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-gray-400 text-sm">
+                            Automation follows a script. Autonomy makes decisions. Agent Zero analyzes the <i>intent</i> of a PR (e.g. "Refactor this class") and decides <i>how</i> to implement it using Cline's reasoning capabilities, verifying its own work in a sandbox before showing it to you.
+                        </CardContent>
+                    </Card>
+
+                    <Card className="bg-[#0A0A0A] border-white/10">
+                        <CardHeader>
+                            <CardTitle className="text-lg">Is my code safe?</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-gray-400 text-sm">
+                            Yes. Agent Zero runs locally or in your private cloud (Vercel/Docker). We use Google's Gemini Pro API which is enterprise-grade, and our "Ghost Mode" ensures the extension only reads what you explicitly select.
+                        </CardContent>
+                    </Card>
+
+                    <Card className="bg-[#0A0A0A] border-white/10">
+                        <CardHeader>
+                            <CardTitle className="text-lg">How do I deploy this myself?</CardTitle>
+                        </CardHeader>
+                        <CardContent className="text-gray-400 text-sm">
+                            It's fully containerized! Just run <code>docker-compose up</code> to spin up the Dashboard, Database, and Kestra orchestrator. See our <Link href="/docs" className="text-emerald-400 underline">Documentation</Link> for details.
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+
             {/* Footer */}
             <div className="text-center pt-20 text-gray-500 text-sm">
                 Built with ❤️ for the Hackathon by Team Agent Zero.
