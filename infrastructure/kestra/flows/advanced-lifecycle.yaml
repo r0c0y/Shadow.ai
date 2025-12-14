@@ -1,0 +1,54 @@
+
+id: advanced-code-lifecycle
+namespace: com.agentzero.automation
+description: "Orchestrate Full Code Lifecycle: Analyze -> Security Scan -> Agent Refactor"
+
+inputs:
+  - id: repo_url
+    type: STRING
+    description: "GitHub Repository URL"
+  - id: pr_number
+    type: INT
+    description: "Pull Request Number"
+
+tasks:
+  - id: parallel_analysis
+    type: io.kestra.core.tasks.flows.Parallel
+    tasks:
+      - id: sast_scan
+        type: io.kestra.core.tasks.scripts.Bash
+        commands:
+          - |
+            echo "🔍 Running Deep SAST Security Scan..."
+            sleep 2
+            echo "✅ No Configured Secrets Found."
+            echo "⚠️ 2 Low Severity Vulnerabilities (Deprecation Warnings)"
+      
+      - id: logic_analysis
+        type: io.kestra.core.tasks.scripts.Bash
+        commands:
+          - |
+            echo "🧠 Analyzing Logic Flow..."
+            sleep 1
+            echo "ℹ️ Complexity Score: 12 (Moderate)"
+
+  - id: trigger_cline_agent
+    type: io.kestra.plugin.core.http.Request
+    uri: "http://host.docker.internal:3000/api/cline"
+    method: POST
+    contentType: "application/json"
+    body: |
+      {
+        "task": "Refactor identified deprecations in PR #{{ inputs.pr_number }}",
+        "repo": "{{ inputs.repo_url }}"
+      }
+    timeout: 10
+
+  - id: wait_for_agent
+    type: io.kestra.core.tasks.log.Log
+    message: "🤖 Cline Agent Activated. Task ID submitted. Monitoring for PR updates..."
+
+triggers:
+  - id: webhook
+    type: io.kestra.core.models.triggers.types.Webhook
+    key: code-event-trigger

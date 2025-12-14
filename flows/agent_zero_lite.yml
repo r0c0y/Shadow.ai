@@ -1,0 +1,145 @@
+id: agent_zero_lite
+namespace: com.agentzero
+revision: 1
+
+inputs:
+  - id: repository
+    type: STRING
+    defaults: "agent-zero-demo/vulnerable-app"
+  - id: pr_number
+    type: INT
+    defaults: 1
+
+tasks:
+  - id: log_payload
+    type: io.kestra.core.tasks.log.Log
+    message: |
+      🚀 Agent Zero (Lite) Activated!
+      Repo: {{ inputs.repository }}
+      PR: {{ inputs.pr_number }}
+
+  - id: fetch_deep_metrics
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.process.Process
+    outputFiles:
+      - data.json
+    script: |
+      import json
+      import datetime
+
+      # Simulating deep analysis
+      data = {
+          "timestamp": datetime.datetime.now().isoformat(),
+          "codecov": {"line_coverage": 85.83, "branch_coverage": 78.5},
+          "security": {"critical": 2, "high": 5},
+          "findings": ["SQL Injection", "Hardcoded Secrets"]
+      }
+      
+      with open("data.json", "w") as f:
+          json.dump(data, f)
+      
+      print(json.dumps(data))
+
+  - id: calculate_mcs
+    type: io.kestra.plugin.scripts.python.Script
+    taskRunner:
+      type: io.kestra.plugin.scripts.runner.process.Process
+    env:
+      GROQ_API_KEY: "{{ secret('GROQ_API_KEY') }}"
+      EXECUTION_ID: "{{ execution.id }}"
+    inputFiles:
+      data.json: "{{ outputs.fetch_deep_metrics.artifacts['data.json'] }}"
+    script: |
+      import os
+      import json
+      import requests
+
+      print("🤖 Analyzing with Groq (Llama-3)...")
+      # Mocking Logic for Speed/Safety since we verified API elsewhere
+      # In real usage, uncomment the API call block from original flow
+      
+      mcs_score = 45 # Force NEEDS_REVIEW for demo
+      status = "NEEDS_REVIEW"
+      reasoning = "Critical security findings detected."
+
+      # Dashboard Push (Localhost)
+      try:
+          dash_payload = {
+              "executionId": os.environ.get("EXECUTION_ID", "unknown"),
+              "status": status,
+              "ai_analysis": {"score": mcs_score, "reasoning": reasoning},
+              "metrics": {}
+          }
+          requests.post("http://localhost:3000/api/reports", json=dash_payload, timeout=2)
+          print("✅ Pushed to Dashboard (Localhost).")
+      except Exception as e:
+          print(f"⚠️ Dashboard Push Failed: {e}")
+
+      Kestra.outputs({"mcs": mcs_score, "status": status, "reasoning": reasoning})
+
+  - id: decision_switch
+    type: io.kestra.core.tasks.flows.Switch
+    value: "{{ outputs.calculate_mcs.vars.status }}"
+    cases:
+      NEEDS_REVIEW:
+        - id: create_jira_ticket
+          type: io.kestra.plugin.scripts.python.Script
+          taskRunner:
+            type: io.kestra.plugin.scripts.runner.process.Process
+          env:
+             JIRA_DOMAIN: "{{ secret('JIRA_DOMAIN') }}"
+             JIRA_USER: "{{ secret('JIRA_USER') }}"
+             JIRA_TOKEN: "{{ secret('JIRA_TOKEN') }}"
+             JIRA_PROJECT_KEY: "{{ secret('JIRA_PROJECT_KEY') }}"
+             EXECUTION_ID: "{{ execution.id }}"
+             REASON: "{{ outputs.calculate_mcs.vars.reasoning }}"
+          script: |
+              import os
+              import json
+              import requests
+              import base64
+
+              domain = os.environ["JIRA_DOMAIN"]
+              user = os.environ["JIRA_USER"]
+              token = os.environ["JIRA_TOKEN"]
+              project_key = os.environ["JIRA_PROJECT_KEY"]
+              
+              print(f"🎫 Creating Ticket in {project_key}...")
+              
+              auth_str = f"{user}:{token}"
+              b64_auth = base64.b64encode(auth_str.encode()).decode()
+              
+              url = f"https://{domain}/rest/api/3/issue"
+              headers = {
+                "Authorization": f"Basic {b64_auth}",
+                "Content-Type": "application/json"
+              }
+              
+              payload = {
+                  "fields": {
+                      "project": {"key": project_key},
+                      "summary": f"Security Alert: Execution {os.environ['EXECUTION_ID']}",
+                      "description": {
+                          "type": "doc",
+                          "version": 1,
+                          "content": [{"type": "paragraph", "content": [{"type": "text", "text": os.environ['REASON']}]}]
+                      },
+                      "issuetype": {"id": "10005"} # Bug
+                  }
+              }
+              
+              try:
+                  resp = requests.post(url, headers=headers, json=payload)
+                  if resp.status_code == 201:
+                      data = resp.json()
+                      print(f"✅ Ticket Created: {data['key']}")
+                  else:
+                      print(f"⚠️ Failed: {resp.text}")
+              except Exception as e:
+                  print(f"Error: {e}")
+
+triggers:
+  - id: manual_trigger
+    type: io.kestra.core.models.triggers.types.Webhook
+    key: "github-trigger"

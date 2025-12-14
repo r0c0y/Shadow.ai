@@ -1,0 +1,38 @@
+
+id: github-pr-analysis
+namespace: com.agentzero.github-events
+description: "Agent Zero: Analyze Pull Request Quality & Security"
+
+inputs:
+  - id: repository
+    type: JSON
+    description: Repository metadata
+  - id: sender
+    type: JSON
+    description: User triggering the event
+  - id: pull_request
+    type: JSON
+    description: PR details including diff url
+
+tasks:
+  - id: log_trigger
+    type: io.kestra.core.tasks.log.Log
+    message: "Analyzing PR: {{ inputs.pull_request.title }} from {{ inputs.sender.login }}"
+
+  - id: security_scan
+    type: io.kestra.core.tasks.scripts.Python
+    script: |
+      print("Running Security Scan on PR #{{ inputs.pull_request.number }}")
+      # Simulation of a scan
+      import json
+      results = {"vulnerabilities": [], "status": "Clean"}
+      print(json.dumps(results))
+
+  - id: notify_dashboard
+    type: io.kestra.core.tasks.log.Log
+    message: "Analysis Complete. Score calculated by Agent Zero Backend."
+
+triggers:
+  - id: webhook
+    type: io.kestra.core.models.triggers.types.Webhook
+    key: github-trigger

@@ -199,16 +199,28 @@ tasks:
             user: "1001" # Security Check
           env:
             GEMINI_API_KEY: "{{ secret('GEMINI_API_KEY') }}"
+            GITHUB_PAT: "{{ secret('GITHUB_PAT') }}"
+            GITHUB_USERNAME: "{{ secret('GITHUB_USERNAME') }}"
           commands:
             - id;
             - echo "Initializing Agent Zero Git Identity..."
             - git config --global user.email "agent@agentzero.dev"
             - git config --global user.name "Agent Zero"
+            
+            - echo "Configuring Remote for Autonomy..."
+            # Use the secret PAT to construct the auth URL
+            - git remote set-url origin https://{{ secret('GITHUB_USERNAME') }}:{{ secret('GITHUB_PAT') }}@github.com/{{ secret('GITHUB_USERNAME') }}/vulnerable-app.git
+
             - echo "Running Cline Autonomous Fix..."
             - cline ask --fix --no-interactive "Analyze package.json and fix critical security vulnerabilities found in the context." || echo "Cline attempted fix."
+            
             - echo "Preparing Autonomy Branch..."
-            - git checkout -b agent-fix-autocorrect || echo "Branch exists or git init needed"
-            - echo "Pushing changes (Mocked for demo safety)..."
+            - git checkout -b agent-fix-autocorrect-{{ execution.id }} || git checkout agent-fix-autocorrect-{{ execution.id }}
+            - git add .
+            - git commit -m "fix(agent-zero): Autonomous Security Patch [Exec {{ execution.id }}]" || echo "Nothing to commit"
+            
+            - echo "🚀 PUSHING to GitHub..."
+            - git push origin agent-fix-autocorrect-{{ execution.id }}
 
         - id: security_alert
           type: io.kestra.plugin.core.log.Log

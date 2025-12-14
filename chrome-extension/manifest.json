@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Agent Zero - AI Code Assistant",
+  "version": "1.0.0",
+  "description": "Autonomous AI development assistant that provides real-time code analysis, security scanning, and automated fixes directly in GitHub/GitLab",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "notifications",
+    "contextMenus",
+    "sidePanel"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "host_permissions": [
+    "https://github.com/*",
+    "https://gitlab.com/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*",
+        "https://gitlab.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Agent Zero"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*",
+        "*.css"
+      ],
+      "matches": [
+        "https://github.com/*",
+        "https://gitlab.com/*"
+      ]
+    }
+  ]
+}

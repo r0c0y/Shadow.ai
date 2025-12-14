@@ -1,121 +1,162 @@
-
 "use client";
 
-import Sidebar from "@/components/Sidebar";
-import MCSCard from "@/components/MCSCard";
-import { GitPullRequest, ArrowUpRight, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Bot, Code2, Shield, Zap, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-rose-500/30">
+    <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
 
-      <Sidebar />
+      {/* Hero Section */}
+      <section className="relative overflow-hidden rounded-3xl glass-panel p-10 md:p-20 border border-white/10 group">
+        {/* Animated Background Mesh */}
+        <div className="absolute top-[-50%] right-[-20%] w-[800px] h-[800px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Main Content Area */}
-      <main className="ml-64 p-8 lg:p-12">
-        <header className="flex justify-between items-center mb-12">
-          <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-            <p className="text-slate-400">Overview of repository health and agent activities.</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-medium">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              System Operational
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-8 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-          </div>
-        </header>
-
-        {/* Top Metric Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="col-span-1 lg:col-span-1 h-full">
-            <MCSCard score={97} />
+            SYSTEM ONLINE: v2.4.0
           </div>
 
-          {/* Simple Stat Cards */}
-          <div className="p-6 bg-slate-900 rounded-xl border border-slate-800 flex flex-col justify-between h-auto min-h-[150px]">
-            <div className="flex justify-between items-start">
-              <div className="p-3 bg-slate-800 rounded-lg">
-                <GitPullRequest className="w-5 h-5 text-slate-400" />
-              </div>
-              <span className="text-green-500 flex items-center text-xs font-medium bg-green-500/10 px-2 py-1 rounded">+12%</span>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-1">24</h3>
-              <p className="text-sm text-slate-500">Active Pull Requests</p>
-            </div>
-          </div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-white">
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-600">Autonomous</span> <br />
+            Code Architect
+          </h1>
 
-          <div className="p-6 bg-slate-900 rounded-xl border border-slate-800 flex flex-col justify-between h-auto min-h-[150px]">
-            <div className="flex justify-between items-start">
-              <div className="p-3 bg-slate-800 rounded-lg">
-                <ArrowUpRight className="w-5 h-5 text-slate-400" />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-1">98.5%</h3>
-              <p className="text-sm text-slate-500">Build Success Rate</p>
-            </div>
-          </div>
+          <p className="text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Orchestrate your development with Kestra pipelines and Cline agents.
+            Automated analysis, security shielding, and self-healing repositories.
+          </p>
 
-          <div className="p-6 bg-slate-900 rounded-xl border border-slate-800 flex flex-col justify-between h-auto min-h-[150px]">
-            <div className="flex justify-between items-start">
-              <div className="p-3 bg-slate-800 rounded-lg">
-                <Clock className="w-5 h-5 text-slate-400" />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-1">1.2m</h3>
-              <p className="text-sm text-slate-500">Avg. Repair Time</p>
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/api/auth/signin" className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-medium rounded-xl transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 group">
+              Dashboard Login
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <button className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 font-medium rounded-xl transition-all backdrop-blur-sm">
+              View Kestra Flows
+            </button>
           </div>
         </div>
 
-        {/* Activity Feed Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 bg-slate-900 rounded-xl border border-slate-800 p-6">
-            <h3 className="text-lg font-bold text-white mb-6">Recent Activity</h3>
-            <div className="space-y-0">
-              {[1, 2, 3, 4, 5].map((item, i) => (
-                <div key={i} className="flex gap-4 py-4 border-b border-slate-800 last:border-0 hover:bg-slate-800/50 transition-colors rounded-lg px-2 -mx-2">
-                  <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center flex-shrink-0 border border-slate-700">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-slate-200">Autonomous Fix Applied</h4>
-                    <p className="text-xs text-slate-500 mt-1">Agent Zero updated dependencies in <span className="font-mono text-slate-400">agent-zero/demo-repo</span></p>
-                  </div>
-                  <span className="ml-auto text-xs text-slate-600">2m ago</span>
-                </div>
-              ))}
+        {/* Decorative Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(circle_at_center,black_40%,transparent_100%)] pointer-events-none" />
+      </section>
+
+
+      {/* Features Grid */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+        {[
+          {
+            title: "Deep Analysis",
+            desc: "Semantic understanding of code logic, not just syntax. Powered by Gemini Pro Vision.",
+            icon: Code2,
+            gradient: "from-blue-500/20 to-cyan-500/5",
+            border: "group-hover:border-blue-500/30",
+            iconColor: "text-blue-400",
+            href: "/docs/concepts"
+          },
+          {
+            title: "Security Shield",
+            desc: "Real-time vulnerability detection matching NIST standards and OWASP Top 10.",
+            icon: Shield,
+            gradient: "from-red-500/20 to-orange-500/5",
+            border: "group-hover:border-red-500/30",
+            iconColor: "text-red-400",
+            href: "/docs/security"
+          },
+          {
+            title: "Auto-Remediation",
+            desc: "Self-healing repositories that automatically generate fix PRs for detected issues.",
+            icon: Zap,
+            gradient: "from-amber-500/20 to-yellow-500/5",
+            border: "group-hover:border-amber-500/30",
+            iconColor: "text-amber-400",
+            href: "/docs/cline"
+          }
+        ].map((feature, i) => (
+          <Link key={i} href={feature.href} className={`glass-card p-1 rounded-3xl bg-gradient-to-br ${feature.gradient} border border-white/5 ${feature.border} transition-all duration-500 group hover:-translate-y-1 block`}>
+            <div className="h-full bg-[#0A0A0A]/90 backdrop-blur-xl rounded-[22px] p-6 lg:p-8 flex flex-col pt-10 relative overflow-hidden">
+              <div className={`absolute top-0 right-0 p-4 opacity-50 bg-gradient-to-bl ${feature.gradient} rounded-bl-3xl`}>
+                <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+              </div>
+
+              <h3 className="text-xl font-bold mb-3 text-zinc-100 group-hover:text-white transition-colors">{feature.title}</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">{feature.desc}</p>
+
+              <div className="mt-6 flex items-center gap-2 text-xs font-medium text-zinc-500 group-hover:text-emerald-400 transition-colors">
+                Learn more <ArrowRight className="w-3 h-3" />
+              </div>
             </div>
+          </Link>
+        ))}
+      </section>
+
+      {/* Live Activity & Documentation Split */}
+      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Live Activity Feed (Mock) */}
+        <div className="lg:col-span-1 glass-panel p-6 rounded-3xl border border-white/5 flex flex-col">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+              <h3 className="font-bold text-sm uppercase tracking-wider text-zinc-400">Live Activity</h3>
+            </div>
+            <span className="text-[10px] text-zinc-600 bg-white/5 px-2 py-1 rounded">REAL-TIME</span>
           </div>
 
-          {/* Right Side Panel */}
-          <div className="bg-slate-900 rounded-xl border border-slate-800 p-6">
-            <h3 className="text-lg font-bold text-white mb-6">Deployment Status</h3>
-            {/* Placeholder for timeline or other widgets */}
-            <div className="space-y-6 relative ml-2">
-              <div className="absolute left-0 top-2 bottom-2 w-0.5 bg-slate-800 ml-[5px]"></div>
-
-              {[
-                { label: "Production", status: "Live", color: "bg-emerald-500" },
-                { label: "Staging", status: "Building", color: "bg-amber-500" },
-                { label: "Canary", status: "Standby", color: "bg-slate-500" },
-              ].map((env, i) => (
-                <div key={i} className="flex gap-4 relative">
-                  <div className={`w-3 h-3 rounded-full mt-1.5 flex-shrink-0 z-10 ring-4 ring-slate-900 ${env.color}`} />
-                  <div>
-                    <h4 className="text-sm font-medium text-slate-300">{env.label}</h4>
-                    <span className="text-xs text-slate-500">{env.status}</span>
-                  </div>
+          <div className="space-y-4 flex-1 overflow-hidden relative">
+            {[
+              { action: "Scan Completed", repo: "agent-zero/core", time: "2s ago", user: "system" },
+              { action: "PR Analyzed", repo: "agent-zero/frontend", time: "45s ago", user: "priyanshu" },
+              { action: "Vulnerability Found", repo: "agent-zero/api", time: "2m ago", user: "kestra-bot", alert: true },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-transparent hover:border-white/5">
+                <Bot className="w-8 h-8 p-1.5 rounded-lg bg-zinc-900 border border-white/10 text-zinc-400" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-zinc-200 truncate">{item.action}</p>
+                  <p className="text-xs text-zinc-500 truncate">{item.repo}</p>
                 </div>
-              ))}
-            </div>
+                <span className="text-[10px] text-zinc-600 whitespace-nowrap">{item.time}</span>
+              </div>
+            ))}
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050505] to-transparent pointer-events-none" />
           </div>
         </div>
 
-      </main>
+        {/* Documentation Quick Links */}
+        <div className="lg:col-span-2 glass-panel p-8 rounded-3xl border border-white/5 flex flex-col">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-bold mb-2 text-white">Documentation</h2>
+              <p className="text-zinc-400 text-sm">Essential guides for Agent Zero integration.</p>
+            </div>
+            <Link href="/docs" className="text-sm text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors px-4 py-2 bg-emerald-500/10 rounded-lg hover:bg-emerald-500/20">
+              Full Docs <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { label: "Quick Start Guide", desc: "5-minute setup flow", href: "/docs" },
+              { label: "Kestra Integration", desc: "Orchestrate complex pipelines", href: "/docs/kestra" },
+              { label: "Cline CLI Agent", desc: "Headless autonomous mode", href: "/docs/cline" },
+              { label: "API Reference", desc: "Endpoints & Webhooks", href: "/docs/api" }
+            ].map((item, i) => (
+              <Link key={i} href={item.href} className="p-4 rounded-xl bg-white/5 border border-white/5 hover:border-emerald-500/30 hover:bg-emerald-500/5 transition-all text-sm text-zinc-300 hover:text-white flex items-center justify-between group">
+                <div className="flex flex-col">
+                  <span className="font-medium">{item.label}</span>
+                  <span className="text-xs text-zinc-500">{item.desc}</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-emerald-400 transition-colors" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

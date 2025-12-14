@@ -1,0 +1,505 @@
+Hey, everyone. Thanks for joining in. Very excited. It's day two of the AI agents
+assemble Hackathon and today we're talking about Kestra. It was our title sponsor and we're
+going to have a lot of fun. Some of you may have seen Will's beautiful face before because
+we've turned a lot of streams together and well for those who for people who don't know you,
+you want to give a quick intro and what do you do? Yeah, of course. Thank you for hosting this webinar,
+really appreciate that. My name is Will. I am based out of the UK and I am a developer advocate
+at Kestra. So my job is to help people like you understand what Kestra is and how you can get started
+using Kestra. So hopefully over the course of this week you'll be pros of Kestra by the end of the
+week and I'll be lurking around in your discord as well. So answer questions as you have them.
+Amazing and a lot of folks that join the Kestra Slack as well. So that's quite cool.
+One question people are asking, yes, you can use multiple sponsored tools and you can submit multiple
+like your project to multiple tracks that is actually encouraged to increase your chances of winning.
+However, not one person can win all the tracks because that's not fair and that's not fun.
+So we will be prioritizing like one person per track but yeah, if one person summits in all the
+tracks then obviously your chances increase and all the tools go well with each other. So you're
+going to be building something very cool. So yeah, Kestra, a really cool price category. I think
+it's 4,000 bucks, some swag and some really cool stuff as well. Will you also do boat racing?
+Try to tell a little bit about that before we move forward. Yes, when I'm not talking about
+tech, I like to race sailing boats and get out in the fresh air. It's actually very good for you
+to not just spend all your time in front of the screen and to get some fresh air. But the best way
+to get into it is find a local sailing club. They'll have courses and they can teach you the
+basics just like with learning a new programming language and then you just keep practicing and
+practice makes perfect and before you know it, you'll be fully independent and builds to take
+yourself wherever you want to go. Amazing and let's talk a bit about Kestra. So we mentioned that
+people are going to use the built-in AI agent to summarize their data from other systems.
+Can you tell a little bit more about the Kestra track price like how people can win and can you
+summarize what people are going to learn in today's demos? You told me you have three demos prepared.
+Yeah, so I'll start with a quick overview of what Kestra is itself. Now Kestra is an orchestrator.
+So the idea is that you can use it for building workflows and automating different processes.
+Now specifically in the context of AI, AI agents are very cool, right? You can do lots of
+interesting things with them. But the thing that often leaves them a little bit sort of difficult
+to put into production is being able to like have them run automatically and be able to like
+have them pass information to other tools. And that's where a tool like Kestra comes in pretty
+handy because you can now take your AI agent wherever model that's running, whether that's open
+AI's GPC5 or you know, Gemini's new three pro model for example. You can have your AI agent do
+what you want. It can then pass that information to other tasks whether that's to them have your
+AI agent make decisions on behalf of you. And then it can generate files up load files to
+destinations or create tasks in the to do list. And I've got a few different demos to sort of
+showcase where AI agents can sort of do some of that those actual tasks for you if you give them
+enough sort of framework around how they work. I appreciate that my camera is a bit laggy. I don't
+know why. So I hope you find your camera is fine. I have that issue as well. Do you have the
+Sony Alpha? Yeah, I've never had this issue. Yeah, for me, like if I set it to 4K, I lag as well.
+But the good thing is the voice is clear and the screen sharing will be okay. Okay. Good to know.
+Yeah, it's 4K or something. I don't know. I'm going to share real screen and then
+take it away. Perfect. So by the way, send in your questions in the chat. We'll be answering all
+the questions in the end. Excellent. I can see someone asking about Alama. We'll talk about Alama
+as well towards the end. So when you jump into Keshe, you get this beautiful dashboard that tells you
+about how all of your workflows are running. If there's any issues, executions and all that. And we
+can hop over to flows and you can see I've got loads of flows. But I name them really badly. So
+don't use me as a good example. Now we're going to focus on three workflows specifically. I'm
+going to actually zoom those in a little bit. We've got AI at tasks market research agent and
+summarize email in real time. If I refresh these, you'll see they are all successful and they all
+do work. Now there's actually a couple of different ways you can interact with AI agents inside
+of Keshe. The first way is using the market research agent, which I've got open here. Now what
+this does is it uses the brand new Keshe AI agent. So this is a dedicated AI agent built by Keshe
+that will use which gives you a lot of control. The thing that's nice about using this over maybe
+using a dedicated plug-in for chat GPT or Gemini is because it's all standardized, you can very
+quickly switch out what provide you are using. So in this case, I'm using Gemini here for this
+example. But I could easily switch it out to a different model, especially because models are
+coming out all the time. They all have their own benefits, their own personalities, their own
+strengths. As a result of that, you might go actually for this particular task, I want to use Gemini,
+but for a different task, you might find using a deep seek model or maybe using a Claude model,
+it's actually a better fit. There's nothing worse than building your whole workflow around Gemini,
+just for chat GPT to release or GPT to have a better model. Then you sit there and think,
+now I've got to rewrite the whole thing to work with OpenAI's API, not Gemini's and that's annoying.
+So you find this as well when you work with various coding agents, they let you just pick the model,
+you don't have to then switch coding agents to help you write your projects, you can just change
+the model so you can use whatever model is best for what you're doing. Now for this demo, I'm using
+Gemini 2.5 Flash, can't wait until we get 3 Flash, that'll be pretty nice when that comes out.
+And then you can also specify a system from. So this is telling your agent how you want it to
+react, how you want it to respond, and so on. In this case, we're telling you, you are a research
+assistant that must always follow this process. We're going to use the Tavily web search content
+retriever to gather information. We're going to summarize and structure that finding and we're going
+to give it some guidelines on how it should do that. And then we're going to tell it to save a
+file as a markdown report so we can view this in a nice format afterwards. But we could then
+hand that file to another task in this workflow, maybe to upload it to a s3 bucket or maybe to push
+it to a Git repository or whatever it might be, send it as a notification, you can do that too.
+And then at the bottom here, we've got content retrievers and tools. So here we've given it access
+to Tavily, we've given it a web API, and we've told it how many results it should give. And you can
+also do this, I believe, for Google Web Search as well. And we keep adding content retrievers so
+you can give your AI agent the tools it needs to be able to go and get the information to make a good
+decision. Going down a little bit further, we've got our tools. Now this one here is a Docker MCP
+client. So I'm running Kestra inside a Docker, and I want Kestra to be able to save a file to Docker.
+So I've given it access to this Docker MCP client, so it can save a file to the file system.
+Just using a bind mount. And as you can see here, it's just going to add it to the 10 folder.
+So each execution, it will just store it temporary so we can then access it. But then we could
+pass that file to another task and have that do something a little more long-term with it,
+like putting it in Google Drive or whatever. So this is this example. Now we've got prompt as well
+as the system message. This prompt is exactly what we wanted to research. Now we have that as an
+input. So every time we press execute, we can then specify what we want it to then research. Now in
+this particular example, we wanted to research workflow and data orchestration because that is
+Kestra's bread and butter. And then we tell it to save the final report too. So if I press execute
+on that right now, we'll see it's going to get started with connecting to the various different
+tools and content providers and content retrievers. And it's going to be able to start coming to a decision.
+Now we can see it's done that already for us. If I go to outputs, we should see here.
+Well, interesting. It didn't do it. It doesn't matter. I do have an example already lined up here,
+which where it did do it. So if we go to outputs here, we can see it generated an output file.
+And we can see it's called report.md, which is what we asked it to do. I can now preview that
+directly inside a Kestra. And I can download it if I want to be able to just use it locally.
+And now I can see here, I can see all sorts of information right about the key trends for workflow
+orchestration. And it's given me that in this particular case, it took 11 seconds to get that
+information, whereas I could have spent ages doing that. So this is one way of how you could use
+an AI agent inside a Kestra where you use our AI agent task to be able to do that.
+And this example is available as a blueprint on our website. But also, if you click on the AI agent
+and go to documentation, you will find there are a load of examples. So here, this is an example of
+doing text to summarize multi-lingual agents. This one's saving files, dealing with memory.
+And you can see here, this one's using openAI as an example. And it's then you're also able to
+specify memory for these as well. So if you wanted to remember things between workflow executions,
+you can have that do it too, which is pretty neat so that it has that context, which is one of the
+main benefits of an AI agent. And you can specify where it stores it. Maybe you already have a vector
+database. Connect that into your AI agent off you go. Or you can have Kestra just store it in
+the key value store as well. So that's one example. Our next example is going to be using a dedicated
+plugin. So we also have dedicated plugins for all the major providers. So I believe openAI,
+Gemini, Claude, deepseek, minstrel, publicsity, there might be some more to we keep adding them.
+And these are very similar in how they act. They're very similar between each other,
+we're other than a few minor differences. But they often have unique things that maybe you would
+get with just those APIs. So for example, nowadays a lot of these APIs have this thing called
+structured output where you can go and make an API request to Gemini or openAI and say,
+hello, I'd like to ask you a prompt to your model. But I'd like the response to be in a certain
+format so that when I get that back, I can actually do something programmatically with it to make
+a decision. Because getting a big block of string is quite difficult to pump into an if statement
+to know whether it's true or false. So in this scenario, we are adding tasks to the newest. And
+the thing that's really nice about this is I can give it a JSON response schema as part of the
+task and say, hello there, I would love to be able to get this data in this format where we've got
+an array of strings and a date time. So we get a due date, we get a description, and we get a title
+as a string object, which we can then pass directly into the to do this API, which is the task
+we have underneath here, for being able to actually add these tasks to to do this. And in fact,
+we don't actually, at the time when I made this demo originally, we didn't have it to do a plug-in,
+we do now, but I'm just using a post request in the HTTP request task here. And here I'm able,
+just to pass in that information. So if we ask it, if it creates multiple tasks, and it gives me a
+an array of multiple tasks, it can just loop through both of those with this four each task,
+and add those in separate requests. So I think we should ask it the question here. I'm going to say,
+I need to get a prescription for medication on Friday afternoon, and then I also need to go shopping
+afterwards. So I can just give it natural language. I don't have to specify, get prescription,
+Friday afternoon, go shopping, also Friday afternoon, but after. Instead, I can just give it this
+natural language and let the deep seek plug-in here, very similar to the Keshtra AI agent to figure
+that out. So here we can see it's created two different tasks. And now if I go over to do this,
+we'll see I've actually got two new tasks, get prescription from pharmacy at 4pm, and then go
+shopping for 5pm. We can actually go into outputs and see under response here, I make that wider.
+We can see it generated a due date for us in a timestamp format, so that to do us API knew what to do
+there. And we can see it did actually set go shopping to be later in the day, because we said that,
+we didn't specify a time, we just said later. So now we've got those in here as we would expect. So
+that's another way that you can interact with an AI agent in Keshtra is you can use one of our
+dedicated plug-ins, which again gives you some options like the JSON response schema, which is
+pretty honest. I think most of them have nowadays, but that's one benefit here. And you can also
+specify your system and your user prompts as well. So if you want to be able to tell the agent how
+it should react, the sort of personality it might have, you can tailor those workflows there.
+But this is an example where you have a workflow right that is going to use the AI agent to
+decide how it's going to do something. And then it can just pass it over to tasks that can then
+actually do it. Whereas if you were asking chat GPT, just can you add something to my to-do list,
+it would be like, no, no, I can't. I can tell you what you should put in it. I can summarise the
+information, but you still have to go and put that information into to do it. So that's the second
+example. Now our third example, this is pretty nice. This is a nice one. One of the common
+use cases I see for AI agents in workflows is to summarise information. I mean, we've just seen
+it here with the adding tasks to a to-do list. We want to give it a bunch of information like you
+might want to be able to just write out a huge thing of, I need to do all these things. Please
+just sort that into a nice structured order in my to-do list. And that's where AI is very helpful
+like summarising information. Now this one's really nice. This is an email one. Now I'm going to send
+myself an email in a second. But what this will do is using this brand new Gmail inbox triggered
+that only got released in our recent release. I can now get any time I get an email, this workflow
+will get triggered. And then when this workflow gets triggered, it will then pass the email over to
+the Keshtra AI agent where the system message is very simple. It says summarise the content of
+this email. So some emails, you know how they can be really long, really you like boring. Sometimes
+you just want to know what the action item is. Do this something I need to respond to yes or no.
+And in fact, you could maybe like build this workflow even further by having the workflow
+look at the, you know, come to a decision on, does this, does this email require an action
+in the next 24 hours? Yes or no? If yes, notify me of that action right now. If no, add it to a
+queue of like all the things I will just add it to a like a to-do list that I will look at later.
+So this is a great way of being able to like make sure that you can focus on what you need to
+and let the AI agent make the decision on your behalf. And again, this one here is using open AI.
+We're using the open AI GPT-5 mini model. We're just having to pass it an API key there as well.
+And then we're just logging it the the output. So that's the other thing each of these AI agents
+produce outputs and we can then hand those outputs to the next other tasks. In this case,
+a lock task to be able to say here's all the information that you needed to know. Now let me spin
+over here and send myself an email while I send myself an email. Do ask your questions in the chat.
+I want to hear from all of you. So yeah, if you've got questions on things you'd like to hear
+about Kestra or AI, then do let me know. Just going to bring this on here. It's really small. I
+made that bigger. Here's an email. I'm going to send myself to myself. Basically,
+pass a lot of information. I'm not reading that. Basically, something got rescheduled. I don't know.
+Anyway, let's present. Yeah, I know there's no attachment. That's fine.
+Right. Well, let that send. If I now go to executions, we'll see that in fact, if I give this a
+refresh, hopefully, hopefully, this is going to work. Hopefully, this is going to work.
+As you can see, it did work earlier. Things get shy when you do live demos. That's the problem.
+I've got an idea. I'm just going to cheat a little bit here. Don't mind me. I'm just going to
+disable the trigger and re-enable it. It's quite a new trigger. Give it a little bump like that,
+and then you can see just like that, it has worked. This just executed just a few seconds ago.
+We can see that it has taken that information. Here's the information it's generated,
+but we can actually go to the log task, which will give us a much easier view.
+That is the information. The summary is meeting move to the finance quarter and closing
+original time. This is new time. This is great. Summarize that information. Whereas,
+if we actually look at the overview, we can actually go over to variables here.
+We can go to the body and we can actually see the whole body of the email, which is long. There's
+a load of other things in there that's not important, such as styling. I don't need any of that
+information. I just need the AI agent to go through and summarize that for me,
+and it does a lot of that for me, so very nice. Now, I'm going to have a quick pause and just
+quickly answer a couple of questions about this particular demo. Someone says explain the trigger,
+like how are the trigger things from our own front-end side? Do we have to grab the API to hit it?
+Now, if you want to trigger workflows from your own front-end, we have a webhook trigger,
+so you can have the webhook be triggered from your front-end application,
+and as part of that webhook, you can put a load of information in the body, which you can then
+access using the user's expressions, like so. You can then pass that information straight
+to your workflow. At the end, you could have a HTTP request send the information back to your
+front-end or application, as well, a bit like I did with Todoist, where I was able to send
+information back, so you can have the workflow receive the information, hand it over to the AI
+agent, ask it information, you can give it a system prompt, all that, have it figure it out,
+maybe pass the information around to some other tasks, and then you can make a response back
+to your front-end or wherever you started to designate or it started this sort of interaction.
+Yeah, so that gives you sort of a bit of an overview of AI agents inside of Kestra.
+There's obviously so many ways you can build with them, so for the prize category,
+I'm excited to see what interesting use case is you build with the AI agents, where
+you have the ability right to, you have the ability here to
+add whatever plugins you like to these AI agents. Kestra has a lot of plugins, like when I say
+a lot of plugins, I mean, we have over a thousand plugins, so if you are looking to be able to
+use your AI agent, along with other tools you're already using, it's a good chance Kestra
+can integrate with those, and with the help of things like our outputs and expressions,
+you can pass that data between the tasks and let the other tasks be able to run away with that.
+Where can we find this webhook? Let me show you the webhook one, a webhook example.
+We have a webhook trigger that looks like that is not the trigger that I was thinking of.
+I was thinking of this one. This is a webhook trigger, so you add this trigger to your YAML flow
+code at the bottom of your workflow, and I can actually show an example of this quite easily
+by copying and pasting this into an instance, so I just take this and make a new workflow,
+and I do something like that. We've got a new workflow here with our webhook trigger.
+I can then go to triggers, and here I can copy a URL from my trigger. Now if I paste this and run
+this, we can see that this is now executed our workflow. If I now go back to our workflow,
+we can see under executions that it was in fact successful at running this workflow.
+It does in fact say hello world, and we can also see some of the information
+under variables here. We can see the headers of when it was wrong. We can see that
+all the information you'd expect to see with a webhook, and there was no parameters past it,
+so you can see nothing. Hopefully that gives you a bit of an idea of how you could either webhook
+to trigger a workflow. We also have a useful question here. This is a great question about AI
+agents. Let me help you out there. So you've asked a question, which is, can we pass payload into
+the webhook? You absolutely can. Similar to this summarized email task that I did have opened
+briefly. Here we go. This email, kind of like a webhook, you could say almost, this is producing
+information. If I go back to the webhook one, if you click on this, the documentation on the
+right-hand side automatically reflects the task you have selected, and you'll see, under outputs,
+these are outputs of that this webhook will generate. So we will get body headers and parameters.
+Now I didn't pass the body to it, but if you did pass the body, it would be available under
+Trigger.Body and then you can be able to do whatever you want with that information in your tasks.
+Here is an example where Trigger.Body is, you can access the information inside of it like so,
+and tell the workflow to only run if the body contains certain information. So hopefully that is
+what you're looking to see. There's also properties too for setting up these different triggers.
+So I definitely recommend checking those out and the examples are there to help you.
+So that's that question. We're going to roll back a second.
+Can we have multiple agents running at once? Yes, you can. In fact, we actually have an example
+which I'm going to steal from our documentation because I don't have it running currently.
+We're going to add this live because why not? Examples. So we have an example where
+sorry, AI agent example. I was selecting the provider. I want to see the example.
+So if we scroll down, there's an example here that uses two AI agents, this one, for example.
+And this is something that's really nice. If we just add this in here, this workflow here,
+let's see, correct, like so. Great. So that should work for me. So I have two tasks here.
+I've got AI agent number one and AI agent number two. Now, both of these AI agents are given
+the same provider, but you could run them with different providers if you wanted. You could run one
+on Gemini and one on OpenAI. You could give them different system prompts so they will have different
+personalities. But the key thing with this demo is the memory and being able to pass that memory
+between the different providers. Now, because I'm using plug-in defaults, basically all these
+values will be the same between them. The key things I'm giving them different prompts.
+If you do want to have multiple agents running at once, you could totally do that, especially because
+we have a parallel task where you can easily run these in parallel. And this scenario would work
+because the second one very much relies on the first one. But it is an example of where you could
+have an AI agent, have multiple agents processing different things and passing data between them,
+using memory. Here, for example, we've got the first agent saying that the name of the person.
+And we can see that that is running as we speak. Hopefully it works. Obviously, I'm making this
+work live so anything could happen. The first agent works as expected. No problems.
+Second agent also works. Now, if we actually go to the overview, the logs, and I, sorry, go to
+Gantvue again, we asked it, hi, my name is John and I live in New York. And then we ask,
+get what's my name, where do I live? So if I go back to my execution, we can see that it goes,
+you said your name is John and you live in New York. And I can see that under outputs to under
+the text output, you said your name is John and you live in New York. Now, if we have to go to the
+key value store for a second, we can actually see this is what the key value store has stored.
+We've got the key John and then these are all of the attributes that it added. So it can then
+go and revisit this in future. And so this means if I was to get rid of this first task,
+right? Like so. And then press execute. You'll see that in theory, I haven't tried this,
+but in theory, it will still know our name because it can access that memory. And we've given it
+key instructions of the memory ID, which was John, which we saw John and John. So pretty,
+pretty handy, if you ask me. So that's an example where you might have multiple agents.
+We are currently working on it. I don't think it's quite live at the moment, but ask away in our
+discordance, in the discord server, where you can join the Keshe community and ask there too.
+We are looking at ways of being able to be able to have AI agents delegate tasks to other AI
+agents. So if we go back to our market research example, we had tools here and we're looking to
+have an example where you can have an AI agent as a tool. So you can actually tell Kest your AI
+agent to then give certain things to Gemini. Like if this is more, I don't know, I'm just going
+to use examples. These are definitely not accurate. But let's say you're doing coding things. You
+might want Gemini to focus on those. And if you're doing more like writing or if the task at hand
+is more writing focused, then you might hand that over to Claude. That's my person experience at
+least. I tend to use Claude for more writing and planning sort of things. And I use Gemini for
+more kind of like technical, same with open AI. But you can then have it delegate. You can give it
+one prompt and have it figure out which AI agent should handle which part of the process. So I'd
+be curious for somebody to play around with that as well and figure out if you can figure out
+interesting ways to delegate to different agents. And if you can actually get value out of that
+or if that's as over complicating the scenario. The multi model approach underhood is a state being
+passed which stored the data and passed to another node. For this one, the data is being still,
+I don't know how it works for the being able to delegate. But for the memory thing, it's all being
+done using this key value store. Obviously has a very short expiry as well so that it runs out.
+But you can change that expiry too. I've only said it to one minute, but you could change it to
+longer if you wanted. You can change these providers to be other things too. I believe it supports,
+as you don't know what it supports. Should we see what it supports? Definitions, there's a lot
+of definitions. This needs a bit of work. I'm not going to look at those now. There's a lot of them.
+But there are memory providers, I believe, for... Let me just remove that for a second.
+Let's see if the air is also complete. I'm on a developer image, so it might not work.
+No, nothing. But we do definitely support back to search DBs. I'm pretty so back to DBs,
+so you can use those too. Other questions that people ask. If I am using Alama,
+how to configure in Kestria, wherever the model providers? Alama, we actually have an Alama plugin,
+which basically runs the Alama CLI in a Docker container. You can have it rely on Alama images.
+You have on your base machine using a property. If we go to plugins, we can search for Alama,
+like so. Here we can see Alama as its own dedicated task, but you can also use Alama as a provider
+for Amazon Breadrock, I believe, maybe. Where did I see Alama? Hang on. Alama. I'm going to search
+for Alama. Here you go. Alama isn't AI. A plugin is a provider, so you can, with the Kestria AI
+agent as well, just provide Alama. You just got to point it to either to... Alama running on your
+system because Alama can run as a server, and then models-wise, it will just use whatever model
+you want it to use, and that is the beauty of Alama if we go to Alama quickly. I haven't been to
+Alama in ages. I know they've got a cloud offering now, but yeah, if you go to the Alama website,
+you just need to specify specifically which model, whether that's GPT OSS latest, 20 billion,
+obviously, this is going to very much depend on your system's performance. I personally found,
+and someone did actually ask us at the start, which I'm going to revisit this question now,
+and we try to find the question. Talk about running Alama locally, which we definitely will do.
+I'm just trying to find the question. Someone asked a really good question about Alama.
+If you remember that question, ask it again. I think it was about parameters,
+large language models, and their parameters, and I would love to talk about that. I just can't
+find the question. Let me see if I can find the question. I remember roughly what it said,
+so I'm going to just talk about... Here we go. Can you talk about large language models using
+Alama, and also please discuss about various large language models, like 1 billion,
+parameters, 4 billion, 7 billion. Typically, the more parameters it has,
+typically, the better the art is going to be. That's a very light, broad overview, but as a result,
+it's also going to be a way more, require a lot more performance. Because I know a lot of you
+want to use Alama because there are no costs associated, you won't run into API limits that you
+will with a free TIS on OpenAI, Gemini, etc. Then there's a lot of benefit there, but it does
+require a lot of performance. Now, I struggle to run GPT-LSS on my MacBook. I try to run the 20
+billion model, which is still 14 gigabytes. They have a little bit of guidance on their GitHub,
+which are open up here, on what models you should run. They do say... Let's see if I can find it
+here. If you have at least 8 gigabytes of RAM, then you should be able to run the 7 billion
+models, 16 gigabytes to run 13 billion, 32 gigabytes to run 33. Now, I have a bizarrely
+18 gigabytes model laptop, so that means I can run the 13 billion models. So in this case,
+I won't be able to run Open Source GPT in theory. That's too big. It was just true because I tried
+running it and it didn't work. It made my laptop freeze. But models that I have used before include
+Gemma 3. Gemma 3 has got a really small model. It's even smaller now. Wow, 270 million.
+I've used the 1 billion before. It's quite small. I might have used the 4 billion, but the 1 billion is
+quite good. It's not too big. It's quite quick. It's just not the highest quality and outputs.
+But the key thing with this hack font is playing around with the models, understanding which models
+sort of are better suited to the task you have. And that's where using something like Google's AI
+Studio might be quite a good tool for figuring out between all of Google's models, which ones are
+quite good. There's other tools like OpenRoot, so I think it is that let you run the same task into
+multiple agents. Now you can also do that with Olama. If you run Olama locally with OpenWebUI,
+you can then have OpenWebUI, which is basically just a pretty front end that looks like
+Jack GPT, but it will connect to your Olama instance. That's a great tool because it lets you
+ask the same question to different models. So you can then test what the response is like if it's
+the sort of response you want if it isn't. So definitely would recommend playing around with that
+as part of building a workflows because the main thing about the workflows is finding a model that
+does what you need. But as some of them are smaller and some of them are bigger, and like here you
+can use some of these tabs to help you filter out. If we host Olama, it will cost more money, I guess.
+Well, and if theory, if you don't actually deploy Kestra and you just run it locally, which is
+normally fine, for development cases, and you run Olama locally, that's fine. But you would
+probably find that if you were to go and spin up a VM in the cloud, you'd need a GPU-based VM,
+and that'll be expensive, and you'd probably bear off just paying for an API access. It's also really,
+I mean, you saw how quick like the deep sequel was right with the, well, all of these have been
+quite quick because they're all just using the API. The Aida Kestra AI agent is effectively a
+wrapper around those APIs, but it gives you a lot more functionality like memory and things like
+that, which the APIs on their own don't give you. And I've done dedicated videos on sort of
+exploring those sort of things. So if you are interested to learn a bit more about playing around
+with those, recommend going to the Kestra YouTube channel and checking out those various different
+videos on interacting with these AI models. So definitely something to bear in mind.
+But yeah, Olama is a good option for running locally, but you will probably be disappointed with
+the performance on a laptop, especially. It will be really slow and the quality of the things
+will probably be not not fantastic. But I'm curious to hear in the chat from you lot on your
+experience with some of the Olama models. Are there any particular models to avoid? Any models to
+definitely use? Yeah, let us know. But yeah, do send your questions in the chat. I'll be
+doing my best to try and answer those. It looks like I'm a slideshow again. I'm going to stop
+screen sharing. See if that helps. Someone asks, TPS for local models are usually really low unless
+we get a home lab or something. APIs are always faster. Yeah, I definitely recommend the APIs.
+And some of them have really good free tears as well. Definitely worth checking out. I'm pretty
+certain I've been just using the Gemini free tear. Definitely worth looking out for them.
+And some of the platforms give you other good free tears. Yeah, if you find one share in the
+Discord, share around like good models that people can use. Kestra does support a lot of them.
+So yeah, shouldn't I'm really getting the way of building your AI models?
+Someone asks, can you show us the working of AI add task workflow again? Yeah, let me
+resale my screen back to the workflow. Okay, so the adding task one. So I'll walk through this
+workflow step by step so you can see what it does. At the top here, we have an input. This
+input is made to look pretty. So it says, what would you like to add to your task today using
+this display name and a description, which will also be added here in the bottom. And it's just
+a string where we can give it information. And it's going to pass this input straight into
+our chat completion task as the input. Now, there are two types of inputs for this type of model.
+There are system messages and they are user messages. Now system messages are typically
+how you would tell the model to interact, how the personality, the way you want it to respond
+with the information. Maybe you want it to only give you one word answers, they sort of things.
+And here, I've specified that I wanted to help you write a to-do list inside the to-do list,
+so it knows that's what it's doing. I need you to return any user message as a tasks in JSON format
+only. There might be multiple tasks the current time is this. The reason I give it the current time
+is so that when I say this afternoon, it knows what it has context on what that is.
+And without that, it struggles a little bit.
+Now, the JSON response schema. Now, my best advice here is to go and check out the API references
+for OpenAI, DPC, Gemini, on how they want this data to be part of the schema. I've seen
+better schemas. The OpenAI deep sequence is a lot of information here for arguably not that much.
+If I go back to the executions for a second and we have a look at our last execution, you can see
+under the outputs, we can see the response. There's only three fields there and there's obviously
+an array of them, but it looks a lot more complicated here because we were saying here that we've
+got properties. We've got tasks as a field and that's an array. Okay, so we know that's an array.
+And then inside that array, the items are going to be objects and the objects are going to have
+properties and the properties of the objects are going to be these three things. But due date itself
+has a little bit more information. We can't just say what it is. It's a string, but we wanted to
+make sure it's a daytime format string and we specifically want to make sure it's in this format.
+The description property here is really useful because you can describe how you want
+those properties to be. So in this case, I've told it to be specifically this format because
+that's what this is to do with API wanted you to do. It's like worth noting.
+And then it will return this JSON schema, which we can see here. It's given me an array.
+Oh, well, ignore this. That's just how it responds, but it's given me an object called tasks,
+which is an array, which contains multiple objects. It could contain one. It could contain multiple.
+So definitely something to bear in mind. And then we can access that information using this
+expression, which you can see here. If I didn't accidentally drag the semi-curly bracket,
+where we can do outputs dot the task ID dot response, then we can use JQ here to be able to
+inspect that particular string because the key thing is Kestra output will return a strings.
+Then we can use JQ to effectively turn that into a JSON. And then we can inspect how we want to
+get the later out of that JSON. Then we can use this first expression here because JQ returns things
+as an array, even if it's in a array of one object, bit annoying. We can use first here to get
+it out of that array. So it's then the data. In this case, it's actually an array inside an array,
+but we want just the inside array, which is the array of objects. So it can loop through them.
+And then it will hand over using task run dot value, each of those objects. So one task run will be
+this object. And the next task run will be this object. And then inside that task run, we can use
+JQ again to access the title, the description, and the due date. And we can then just hand those over
+here to the body of our API request. So hopefully that helps you understand how you could use this
+as an example for building a workflow where the AI agent is giving you data in a format that your
+workflow can then go and do other things with. Other questions. So interestingly, someone said
+Grock SDK is free, but it doesn't give appropriate results and is less smarter. Do you have any
+alternatives for language models, which give better results on understanding the prompt and is
+faster? Oh, that is a good question. I don't know if I'm necessarily qualified to answer that question.
+So what I would recommend is discussing amongst yourselves and what you have found from my personal
+experience. The free models are always hit on this, unless they're massive. I mean, I've tried
+using a bunch of free models. And they're all just like they basically are so dumb that it
+almost feels like they're not worth using. They give unreliable responses, even when you explicitly
+say in your system prompt, only respond with one word. Sometimes they don't and they seem to
+hallucinate a lot while I find. So I definitely would tread with caution and try and utilize those
+free. Those free is. Yeah, if you want free ones, say Lama 3.18B, and there's the
+quen models as well, they are quite nice. Yeah. Cool. Cool. I think you know, just reading some wisdom.
+There's another question. Another question. Host and Kestra on EC2, how much storage does it
+take? I guess it needs four gigabytes of RAM, but not sure about storage. We do actually have,
+on our website, I'm going to check that now while we discuss under installation, it is actually
+a requirements on what you need to install Kestra. I'm pretty certain storage-wise, you're not
+going to need huge amounts. It depends on what you're doing with the workflows. If you're obviously
+using AI models, you're going to need enough storage to store those models if you're using something
+like a Lama. If you're not using something like Lama, then you're going to use very little storage.
+So I would probably just keep it. I think 20 gigabytes is standard. That would be plenty
+for what you're trying to do. I'm pretty certain we have information on that available somewhere.
+Maybe just a check. We recommend to find what we recommend.
+We do recommend at least four gigabytes of memory, though, and two VCPs as well. So make sure that
+you have those two things to make sure that everything works as expected.
+For the multi-agent workflows, would you suggest invoking flows from flows? Can we do that and
+suggest suggestions for the same? Yes, you can. So Kestra itself has an MCP server. So this means
+you can have your Kestra AI agent use the MCP server to interact with other Kestra flows.
+So you could have flows effectively treated like functions where you have a load of different steps
+packaged up into their own workflows. And as a result of that, what you can do is then tell your
+AI agent, okay, I want you to add tasks to the newest. And instead of that being in your workflow,
+it just calls the dedicated workflow for adding tasks to do it. So all it needs is an
+input of the data, and it will handle the rest. And so that's a really nice way. And actually,
+we have a demo of that too that I can demonstrate quickly. I am going to have to again try and run it
+live and hope that it doesn't break. If you know you could add my screen share back, we'll see if it works.
+I am looking for it. I know we have an example. I just need to find it.
+I know we definitely have an example on the blogs. So if I go to blogs and we have a little look
+here under the blogs we recently did an AI agents blog posts. And in here, there is definitely
+that's far too zoomed in. We definitely have an example for this example. Here we go, dynamic flow
+orchestration. So let me now make a new workflow and paste this in. Now this might not work because I
+don't actually have many of the tutorial. In fact, I have none of those tutorial flows installed.
+Very good. So I'm going to quickly spin up a separate question instance. Do hold while I log in.
+Let's have a look. Does this have the tutorial flows? It has some of them. Yeah, it does. Great.
+So what we can do is install this one and just make sure it's using key value. Great. So I have
+another workflow set up here. Here we go. So this workflow is asking you to select your
+orchestration use case. And the idea is that this will then run our tutorial workflows,
+which are orientated around these use cases. So here we've basically said that business automation
+we're mapping the different names to the name of the workflows. And then it will use the
+Kestra. URL. And if it doesn't have that, it will use local hose 8080 to be able to run these
+using the Kestra MCP server. So if I click execute here and I know that I have the data engineering
+pipeline set up on Kestra, we can see that it didn't fail. Yeah, I know. I'm in a namespace that
+doesn't have the things I need in it. Let me just change that again. Try again. Nothing happened
+here. I already exists even better. Flow calling agent. Should we find it? Flow calling agent
+in company.team. So if I try that again, I execute the data engineering pipeline. Yep, that should
+be fine. Should work, live demo, making it on the fly. You'll see that it's going to be able to
+use the AI agent here to start a new execution. If I actually go over to executions, we can see
+that in fact, it did call the workflow calling agent did work and it did call the data engineering
+pipeline. Now it did fail, but that's because of a breaking change in a recent update. But we can
+very quickly fix it where no one will notice that it broke and I can go back to our flow calling
+agents like so. Click execute data engineering pipeline press execute. We'll see that it's going to
+execute that workflow again. I can click on this link. It's going to jump me straight into the
+execution and we can see that it was in fact successful other than it has failed, but we're
+going to the fact that it failed because it did all the other things. It's just the log task
+that failed and we can see that it in fact did work and we can see it got us all that query data
+in a nice table. Very good. Very good. So that's one way where you can have MCP server
+cool different parts of Kestra using our Kestra API. So if that's something you're interested in,
+ask away in a discord. I'll keep an eye and try and give you links to these. But this AI
+agents blog posts, which I believe was shared as part of the hackathon that has this blog post,
+which has a bunch of different examples using the Kestra AI agent, including stuff using the MCP
+server, using memory, using different tool providers. So that's all the sort of stuff you need to
+get started. Any other questions before we begin to wrap things up?
+Sounds like you look like AI and I'm like, I mean, yeah, I could be AI if I keep freezing.
+Call me AI because I'm the future. Yeah. Yeah, I'll take it. I am the future.
+Yeah. Cool. But Vil has a nice setup. I know. I'm going to get replaced by these AI agents before
+I know it's actually going to be really depressing because they're the ones that always have to
+light over the top light blurry background and bright camera and shock. I think it looks great.
+Cool. I believe we got all the questions answered.
+Okay. Should we wrap it up here? It's been 15 minutes. Yeah, I think so. I think so. Yeah, thanks.
+But yeah, I think join the Discord server. Ask your questions there. Join the Kestra Slack channel.
+I emailed everyone about that today if you're registered for the hackathon. If you're not
+taking part in the hackathon yet, you still have time. It's going to be running throughout the week.
+So you can register any time. You can find the links in the description or on Vmigdesk.org.
+All the information that you need is on the website. The Vmigdesk website.
+Thanks for watching. And by the way, Kestra has crossed 26,000 stars. If you haven't started already,
+go check it out. It's open-source so you can start contributing as well. Big shout out to Vil.
+Thanks for the demo and answering all the questions. Thanks everyone for joining and asking great
+questions. This was amazing. And we'll see you in the next one. Bye. Sounds good. Thanks, everyone.

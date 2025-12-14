@@ -11,12 +11,13 @@ services:
       KESTRA_CONFIGURATION: |
         kestra:
           server:
-            basicAuth:
+            basic-auth:
               enabled: false
         micronaut:
           security:
             enabled: false
-      GEMINI_API_KEY: "AIzaSyBSLnSxhQxBDX0YPRQk4x4KBI9t2X5IjtM"
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      JAVA_OPTS: "-Xmx2048m -Xms512m"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./kestra-data:/app/storage

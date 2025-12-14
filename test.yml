@@ -1,0 +1,6 @@
+id: test-flow
+namespace: com.test
+tasks:
+  - id: t1
+    type: io.kestra.plugin.core.log.Log
+    message: 'hello'

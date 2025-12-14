@@ -1,0 +1,713 @@
+Music
+Music
+Music
+Music
+Music
+Hello everyone. Thanks for joining. We appreciate it. Let me know if you can hear me in the chat.
+And welcome to the Akithin. Very excited.
+So, it's going to be interesting. We have 5,000 people registered.
+For those of you who don't know, I will share my screen real quick.
+Let me just share my screen over here.
+Share screen tab. There we go.
+So, as you know, we are running the Akithin called AI Agents Assemble.
+We have some nice prizes as you can see for client.
+If you're using client, you get to win 5,000 cash, 3,000, 4,000.
+And it's just going to be a lot of fun.
+Everyone who registers is going to get personal like mentorship for Google Summer of Code because the timeline is now out.
+And if you register and you share it on socials and tag, we make devs.
+We will select 10 random winners for the social media raffle.
+You'll get some nice swag boxes.
+But all the information can be found online. Make sure you join our Discord channel because that is quite important.
+I think I shared the wrong tab. Oh, there we go.
+So, that's the main page.
+Yeah, as you can see here, prizes, the sponsors.
+I'm really, really nice prizes. So, that's why we have 5,000 people registered.
+One thing I want to share is around 50% of people have registered. This is their first Akithin.
+So, there's definitely like a lot of chances for even beginners to win.
+Like the code rabbit abort, for example, if you have good open source practices, you can win that abort.
+And yeah, all the information can be found on the website.
+I would say join our Discord channel if you haven't already.
+And shout out to the team of we make devs for organizing this conference.
+Sorry, this Akithin. I am very happy to see.
+And I'm happy to answer any questions before we get our first speaker on the stage. Tony.
+So, Tony is going to be joining us from Klein.
+As you know, Klein is one of the sponsors.
+And we would be showcasing, you know, how you can use Klein to take part in the Akithin.
+Like how you can use the CLI and what kind of skills do you need?
+Some are been disasking what kind of skills do we need?
+And yeah, someone is asking, what is the theme?
+The theme is open-ended. Like you can build anything.
+You have to, like, there's not a, there's not a theme here.
+Like, build whatever, you know, sometimes.
+Achillesh, if you're interested, just register on the website.
+And that's it. And join our Discord channel.
+That is it.
+But what I'm going to say is, yeah, see, first Akithin, first Akithin.
+This guy gets it.
+Yeah, the most important thing is learning.
+He's started. What do you have to do?
+Check out the website, check out the sponsor tools.
+Someone asked what's the theme.
+There is no theme. You can build anything.
+We don't like to gatekeep like that. I mean, you can build anything.
+Any project, any problem statement.
+You can build literally whatever you want.
+The goal is just to use our sponsors if you want to win their sponsor category prizes.
+You can use multiple sponsors.
+You can apply to all tracks as well, multiple tracks.
+So your chances of, you know, what do you call it?
+Your chances of winning increase.
+And we'll be doing live streams like these to answer your questions to show you how the tools work.
+And everything.
+But let me also share with you some other stuff that would be nice for you.
+So you should check this out.
+So if you go to our main website, you just scroll to Hackathons.
+This is the first one.
+And this is the one we're doing next week.
+So make sure you check this one out as well.
+You click on this button and you just click on register now.
+And you fill this form.
+If you're taking part in a team, you can take part solo or you can take part in like a team of up to four people.
+Everyone has to register individually.
+And I want you to check out the rules section.
+So here you can check out how to use the sponsor tools.
+What to use for each sponsor.
+And other guidelines and resources and stuff.
+So you can find some resources here.
+And, you know, it's going to help you get started.
+Cool.
+Let me know if you have any questions while we wait for our speaker to join in.
+I'm happy to wrap it fire.
+Ask your answer your question.
+Google.
+Then.
+Yep.
+Yeah, if you're into automations, we're doing.
+We have a Kestra, which is doing an event tomorrow.
+Or around 50% people are taking part by themselves.
+So you can see a lot of people taking part solo.
+This is the thing with Hackathons.
+This is what we saw is here.
+And one of the reasons why I got selected into Gsoc was because of.
+You know, like I just went with it.
+So I was contributing to Cuban it is Java client.
+So there are two reasons why I think I got selected.
+I'll tell you.
+I was contributing to the Cuban it is Java client.
+And I didn't really worry too much about what the project is.
+I just got started.
+Because when we launched this hackathon, people are like, oh,
+it doesn't matter.
+Just get started with building.
+Anyone can, you know, anyone can take part.
+Yeah, around 50% are participating solo 50% in teams.
+So if you haven't registered, I would suggest register.
+Take part build stuff.
+You have the whole week.
+You're going to teach you a lot of stuff.
+It's going to start in one minute.
+So I'm going to bring up the speaker on stage.
+It's going to share with you about Tony's going to share about client.
+And how to build your own code review bot.
+So the second reason I believe I got selected is because I picked a difficult project.
+Well, quote unquote, difficult.
+So, you know, people want applying to that.
+Just me and this one guy were applying and we both got selected.
+All right.
+Let's get started.
+Hacking has begun.
+And let's learn how you can win price category for client.
+Tony, how are you doing?
+I'm doing wonderfully.
+How about yourself?
+Yeah, not bad.
+Not bad.
+Very excited.
+We have 500 plus people watching live.
+So it's going to be interesting.
+Someone is asking how do we ask questions in the discord channel.
+There's a category called the hackathon.
+There's a channel where you can ask questions as well.
+Keep the questions coming.
+We will answer those in the end.
+But over to you, Tony.
+Wonderful.
+So today we're going to be learning how to build your own AI code review bot using the client CLI.
+So effectively, what we're going to build today is an automated code review bot.
+It'll work with any Git repository that you give it.
+It'll review commits, diffs, PRs.
+It's fully customizable for security, performance, and quality checks as well.
+So why automate code reviews is the real question.
+Well, frankly, with AI generate code and the variety of coding bots exist.
+Review is the new bottleneck that we have.
+So what an AI code review provides is instant feedback on basic issues.
+It provides consistent standards across a variety of different methodologies.
+So honestly, just freeze up human reviewers for architecture, business logic,
+more than just diving deep into syntax.
+Most importantly, though, it catches common bugs and security issues that tend to play projects.
+So the client CLI is an autonomous, an autonomous AI coding agent.
+It's a command line interface, so you're not tied to one particular IDE.
+You have the freedom of choice with it all.
+It allows you to read, write, and execute code.
+And there's a variety of slash commands and other modes that exist within this particular project.
+There's three core modes that exist with the client CLI.
+There is interactive, which forms a lot more like the chatbot interface that folks tend to be generally accustomed to.
+There is headless mode, which is also a lot more of what we will be focusing on today.
+It essentially provides that full automation and and multi instance is an interesting way of analyzing things as well.
+Because it lets you have parallel instances of the client CLI.
+So hypothetically speaking, one could have a testing instance of client.
+One could have an instance of clients actually doing the code implementation and so on and so forth.
+So the main thing that we need to have is we need to make sure that we have NPM install.
+We need to run NPM install for CLI in order to make sure that this is showing up appropriately.
+And then of course we can double check with client help.
+On mind of things I can dive over.
+Let me go ahead and just share my screen on that side of things.
+More importantly, just my terminal, I suppose.
+That's really the most important thing for this particular thing.
+Let me just make sure that I'm sharing my terminal window.
+That will work nicely.
+Lots of windows open.
+Yeah, entire screen works.
+Cool. So just going to dive over.
+So let's see what was my command.
+NPM.
+There we go.
+NPM install.
+She fine.
+And this is basically how we do it from a green field.
+Can you zoom in a little bit?
+Some sort of saying, yeah, thank you so much.
+No problem.
+So we have it installing at the moment.
+Just going to go ahead and share the presentation again.
+Because I realize it's probably the easiest thing.
+Thank you much.
+Probably the easiest thing to start with.
+Cool.
+So yeah, NPM install.
+She client.
+Client dash dash help.
+Let's see.
+Maybe just maybe.
+Let's see.
+It's fine from mind of things.
+So yes, that's the main thing to start with.
+And as I mentioned, there's three main ways to use the client CLI.
+Today we'll be focusing on more autonomous mode than anything else.
+Such as client dash wire review my code.
+That'll be the effective command that we run with at all.
+Interactive mode is the default.
+So in order to use the autonomous mode, you do need to use the dash Y flag.
+Then for piped input, we run STDIN.
+Within this.
+And this is great because it's flexible, it's scriptable.
+It's something that's meant to be built into a CICD process more than anything else.
+Which is just wonderful because it's incredibly easy to automate that way.
+Let's see.
+Okay, good.
+We have everything installed on our end of things, which is delightful.
+And then just to make sure that everything ran correctly.
+So we have that instantiated on our end of things.
+So let's just.
+We can just go ahead and create a sample file with bugs.
+Because why not?
+Actually, you know, let's let's go and do this more at the end.
+I really want to showcase how quickly one can do this more than anything else.
+Let's stick to that.
+So the power of Y.
+Now you might be wondering why, why.
+Well, this is actually a mode that we call YOLO mode.
+And this is interesting because it disables all interactive prompts.
+Auto completes tasks that exist within.
+Clients workflow.
+And it allows for non blocking command execution.
+It is perfect for automation.
+And the use cases include usage within the CICD pipeline.
+Pre commit hooks, batch processing, and cron jobs.
+Which just it's quite effective more than anything else.
+So now let's build it together.
+Let me go ahead and.
+Wait, I have a much better idea.
+Let's just.
+Have these screens co located.
+Cool.
+Don't mind me just sharing the whole screen.
+Cool.
+So let's actually.
+This is very meta.
+I know, but let's actually just see ICD into the client repo itself.
+That's what we have here.
+Nothing too crazy.
+So then workspace.
+Let's just make their sample repo.
+CICD into that simple repo.
+Cool.
+We don't have anything in there.
+Let's just touch.
+Example.
+I'm rethinking this unless I should just go into the client repo itself.
+That'll probably be the easiest option for all parties involved.
+Which is just a good time all around.
+Let's see.
+I'm trying to pull my presentation up once more.
+Cool.
+So we have the ability to simply review commits as well,
+which is quite delightful, although what we're focusing on is
+the specific file changes within the, within this particular repository.
+So the fun thing is that we can intentionally create a function with bugs within
+this function here.
+You can see it's essentially it says log in.
+We're providing user and the password is input.
+And if the user equals admin, the password equals admin, return true.
+Now, when we review this autonomously, it simply it understands that the user name and the password are the same,
+which is for one and no go, but also admin is an incredibly obvious password, so to speak.
+So this returns information based off the fact that this is not a secure password incredibly good for security purposes.
+So the main thing that we're wanting to build today is a file called review commits.sh.
+Within that sample repo, we created this is effectively what we're going to be making.
+This will allow us to review any get commit that we make.
+It will allow for multiple different types of reviews, including security,
+performance and quality reviews.
+And it also provides air handling built in.
+Let's see.
+So we have flexible output formats with this as well.
+And if I'm not mistaken, this thing should be production ready by the end of it.
+The basic version should only take about five minutes or so.
+And we do have ideas for enhancements to provide to it.
+And then the actual production version of it should be ready in about seven minutes or so.
+So here's the basic script that we're going to be working with and creating today.
+Give me one second.
+I know side by side windows. That's the answer.
+Cool.
+So effectively.
+We're going to
+essentially go in and create this project for more like go into the project that we just created.
+The reason to do the same work twice, am I right?
+Con see your terminal.
+In that case, let's just share the entire screen. That'll probably be the best option.
+I think I think that's the best.
+Yeah, perfect.
+Cool. Pardon that everyone. Sweet.
+So here's what we're looking at right now.
+Let's try to keep this those your own slide open.
+Not sure the zoom in is visible.
+You're absolutely right.
+Always always something isn't there.
+Cool.
+And I guess I'm just copy based directly from the.
+There we go.
+Yeah, that's much better. Thank you.
+Amazing.
+We have a lot of questions, nice questions by the way, so we can answer those in the end.
+Please keep those coming.
+Excellent.
+So let's see.
+So what was the name of that function that we were going to name this whole shebang?
+Let's see, let's see.
+There we go review commit.sh.
+So that's the name of the file that we're going to be creating.
+Touch review commit.sh.
+Cool.
+And good. We've managed to create that successfully.
+So let's just go in and.
+That's a total of client art that we've made over.
+Over a period of time.
+You know, heck with it.
+We're doing full nano.
+Nano is always fun.
+Perfect.
+Cool.
+Let's see.
+Now what was the content that we were going to throw in there?
+Our basic script.
+Let's see if we can just copy and paste it in.
+Nano is sometimes a bit funky.
+So good.
+The nano guts have blessed us today.
+Sweet.
+Now let's give that a try.
+We have to run this CH mod command in order to build this whole shebang.
+Cool.
+Well, now we'll do it.
+Let me get admit.
+No wonder.
+Haven't actually created it on GitHub as a bit, which is wonderful because it turns out that this kicks off this initialization path for client.
+So what I'm going to do is I'm going to initialize with my client accounts.
+I'm going to go ahead and authorize.
+Cool.
+And we successfully authenticated.
+Delightful.
+Now what would I like to do?
+I think I'm feeling pretty good with what we have.
+We're currently working with our now authenticated client accounts.
+We have our active provider, which is client official.
+I don't feel the need to change that.
+And we're going to be using a clause on that 4.5 today.
+So anyways, I think we can go ahead and exit the authorization wizard on that side of things.
+So.
+Cool.
+Cool.
+We're going to have that get show and pipe it to climb.
+And sweet.
+So we just made executable and tested it, which is just delightful.
+So first thing is effectively done for us in that case.
+No, I think we can probably, yeah, you know, I'm just going to keep the presentation like this.
+It's not perfect in terms of visibility, but you know what?
+It's probably one of the better options.
+So for the version two, we mentioned it very briefly.
+We have the script up and running as of now.
+So we have multiple different kinds of review types that we can do.
+I want to show you guys the usage for doing a security review.
+And it's pretty straightforward.
+Basically just review commit head security.
+Oh, wait a second.
+It's desups.
+I'll do it.
+I haven't actually committed the file contents yet.
+Silly me.
+Well, you see, I wanted to give the people an apparent as to the view of starting this puppy up from the beginning.
+So I pushed lead out all my authentication details.
+So, you know, we should probably just go into GitHub and make sure that we have our remote setup for this as well.
+Just makes a bit more sense to do it that way.
+So let's go into repos.
+We can press new.
+And we'll keep the naming consistent just to avoid any kind of unnecessary confusion.
+Going to put that in the client repo.
+I will be open sourcing this afterwards.
+So the lovely people watching this can dive into it for themselves and see what's popping through.
+Yeah, let's go ahead and.
+Add origin.
+So cool.
+Now let's get commit.
+Let's just call it sample creation.
+Cool.
+Okay.
+Now we can do that lovely thing that we were trying to do, which is run this review commit command.
+About a ping, about a boom.
+Cool.
+All right.
+So we're going to review this for potential bugs, security issues, et cetera, and so forth.
+So, client is currently thinking right now.
+But, okay.
+Cool.
+Wonderful.
+So the our script is successfully running.
+And it's identifying a few potential bugs.
+Main ones being the script doesn't, excuse me, validate if the commit hashes valid.
+There's no error handling for show get failures.
+And there's no verification that the repository even exists, which is, of course, potentially a problem.
+So the other thing is regarding security issues.
+There is command injection vulnerabilities that exist within this.
+The commit variable is using get show without proper validation.
+So that leaves potential for vulnerabilities like malicious line, like this RM RF command that could just delete pretty much everything that we have, which is.
+Never choice.
+He'll end up with OSX Lyon or something like that.
+If you run that in an opportune time.
+And there's just no sanitization.
+So that being said, it looks like we also ran some of our code quality improvements that we'd want to do as well.
+And there's no error handling.
+We could add help text if we really wanted to.
+And we could definitely check if there is a get repository that exists.
+So there's a few best practices violations as well.
+As we can see from here, there is a missing proper input validation.
+There's no error handling.
+And there could be better variable coding practices.
+Now, the cool thing about client is it has a distinct plan versus act mode, which is incredible for architecting an application beyond alerts.
+And then once you have your plan architected, then you can act on said plan.
+It's it's probably one of the best parts about about this particular AI coding assistant versus virtually every other contemporary.
+So cool, this user has now or client has now switched to act mode since it's in a pretty autonomous mode.
+And it's already provided a comprehensive review and plan mode.
+So now that it's in act mode, it's going to complete the task by marking it as such sensor review has been provided with actionable feedback.
+But we do see some potential bugs, we see some security issues, some code quality improvements that one could make and some best practice violations.
+Now, so this is proof that the client CLI is functioning as a code review, but that's not what you lovely people were promised.
+So we were promised a code review about that we can utilize.
+Let's go ahead and switch the input back to the presentation.
+If possible, perfect.
+So we have the basics of that functioning, which is just delightful.
+And we saw within this that we reviewed the commit for security vulnerabilities.
+There were specific focus areas.
+We received the level of detail that allows us to make actions from said feedback.
+And as you saw, it wasn't instantaneous on the literal sense, but that was a head couple of faster than most other code reviews I've gotten in the last couple of years.
+I consider that a victory.
+Cool. So the next thing that we want to look into is various code structure.
+Changes and challenges that one might have.
+Within this, we want to make sure that our code follows a specific sort of styling, mostly for consistency, mostly for architectural stability.
+And mostly so that it makes it easier for others to come in and continue developing on top of the application that you've built out, which is always important.
+So let's take it a little bit further as well with the hands on exercise.
+So I hope that you've been following along with the installation instructions.
+But at this point, we really want to have this version one working.
+And so the version two, we can go ahead and grab the code for that.
+Should be a problem.
+Cutting and pasting it from, excuse me, let me actually share my screen again.
+Harden that lovely people.
+So we're back to this.
+Perfect.
+So let's open up that file that we created the review commits to SH.
+So what we have here is
+the new version of the file that we're wanting to create.
+So I'm just going to go ahead and explain everything that we wrote beforehand because we are replacing it with a newer version of the script as well.
+I guess I could theoretically hold like the option.
+Why is it the control key?
+There's something that leads to the bit faster.
+But alas, nano is not necessarily my cup of tea.
+Anyway, so here's what we're cooking with right now.
+There we go.
+So cool.
+So this particular version two will review our code structure that we have within the bot.
+So I'm going to go ahead and run the command again.
+Here's what we're looking at.
+Cool.
+So kicking it off once more.
+It is running our general review plot.
+Perfect.
+And you can already see the output from a client on this.
+So first, it's of course going through that plan mode iteration.
+It's understanding what the user is asking for.
+We want to to review the commit more than anything else.
+It's going through and gathering any necessary information required and creating a plan for reviewing this commit.
+It'll be using plan mode to review the findings versus act mode where it would be acting on said findings.
+But this is really the main differentiator here.
+So it's upgrading or correction updating the script with.
+It's actually lost my place.
+But it's essentially updating the script with a few things to improve the quality and the speed of things as well.
+The current file does have better defaults and better type selection than that prior file.
+And it uses case statements for different prompts.
+But it still has some of the same issues that we're plaguing the earlier version, which is to say no error handling and no validation and of course potential security issues.
+So we're going to be updating this version with proper error error handling and security fixes as well.
+So that's a lot of what's happening within here.
+First, we're going to review that we're in a get repository.
+Let's see.
+And of course, if it's not, then it'll just throw this error echo or correction this is error.
+We're not in a get repository.
+Pretty straightforward.
+We're going to make sure that client is available.
+We're of course making sure the commit exists within this.
+We're going to check for some basic security vulnerabilities data exposure risks cryptographic weaknesses input validation problems and a few other things as well.
+We'll also be doing a performance check as well.
+Just to ensure that there's no say performance bottlenecks inefficient algorithms or data structures resource leaks unnecessary computations or loops.
+And also just it'll just make sure that there's no opportunities to improve the database query optimizations.
+We're of course going to make sure that we have code style consistency as well.
+Make sure that the naming conventions are consistent.
+Of course, format or code consistently as well so that it doesn't look like AI slop more than anything else.
+And of course, we want to make sure that it's readable as word is to think.
+So cool.
+Oh, no.
+So it looks like there is a small issue says error and not a get repository.
+Let's double check that everything is.
+Oh, of course.
+My mistake, everyone.
+I forgot to commit yet again.
+One might say I have commitment problems.
+Cool.
+It's immigration to very original.
+I know.
+And maybe we'll just.
+Maybe we'll just push for giggles as well.
+Cool.
+So let's run that once more.
+So it looks like since we last ran it, it did automatically improve the security specific prompt.
+As well as these style specific prompts, which is delightful.
+Of course, other updates as well.
+But right now it's in plan mode.
+So it's gathering the information based off of this comprehensive file review while it's doing all that.
+Actually, no, it looks like it's moving faster than I thought it would.
+So there's a few ways that we can take this further as well.
+The main one is with pre commit hooks.
+If you're not familiar, that essentially runs before every commit to catch issues early.
+The great part about those is it prevents errors from appearing in your code before it even hits your CICD system.
+So in other words, you're not ever any point committing security vulnerabilities, which is pretty great, especially if you're in a highly regulated environment.
+PR automation is something that I feel like would interest quite a few folks because that is what reviews pull requests automatically.
+I dare say that's kind of what we promise to do within this workshop.
+And that allows you to automatically commit on GitHub or GitLab, wherever you're deployed at, as well as flag critical issues.
+So they definitely get the eyes on them that they deserve within that we can implement this into a CICD pipeline as well.
+All right, let's see how we're cooking.
+Cool. So it looks like we completed what we wanted to, which is always good fun.
+So there's a few things that it's done since essentially.
+I don't know.
+So apparently there's a warning for unknown review type using general that's curious.
+I'll look into that momentarily, regardless.
+So here's an example of a pre commit hook, essentially this runs beforehand.
+And this is usually configured within GitHub's pre commit.
+It goes the necessary information just to give the user some kind of idea of what's going on such as running AI code review.
+And then this get different cash right here.
+You know, let's let's start running this. It seems kind of fun.
+Let's see if we can just make sure that that existed.
+So what we're going into is that repo right now.
+All right, good. So we do have free commits.
+And here are at least a pre commit sample.
+We're just going to go ahead and touch pre commits.
+Cool.
+Now pre commit.
+Cool, cool, cool.
+No, this is great because this will make it so that it automatically runs pre commit.
+Every time we commit that'll run against it.
+So anyways, this is the review commit script that we are wanting to create as well.
+Essentially, that is review commit.
+So let me back out of this.
+So get a PR viewer scripts.
+I'm just going to call it.
+I think I have to touch it first.
+Let's call it GitHub review.sh.
+Seems fair.
+Cool. It's going to throw that in there.
+It's very simple script. So honestly, that's kind of the most impressive part about this.
+It's how you can be obviously not the best engineer and still do incredible things with the tools that we have available to us.
+So anyways, just need to make sure that I run that particular command to make it an executable.
+And so we can.
+And now we're javin.
+We're javin.
+Wait a second.
+I just ran it with the wrong name silly me.
+It's definitely supposed to be.
+Let's review what?
+Okay.
+See what it is then.
+Oh, of course, it's because I did not run the CH mod with the right name either.
+Have had my copy this morning. That's a real problem.
+So.
+Now, no pull requests found for the branch either.
+Well, at least I can fix up from mind of things because we can just go into this sample repo.
+I believe I pushed earlier.
+Cool. So we have this.
+In that case, I'll just need to make a separate branch for the code that we just added.
+And I suppose I could go ahead and create that.
+So if I want to stop this particular command as well.
+So essentially right now we're verifying that we're in a Git repository.
+It's understanding the context of the review commits to SH PR.
+And I'm also going to avoid potentially breaking anything.
+And I'm not going to cancel out the script.
+Just note that we just need to wait for this to finish running so that I can create a new pull request from my command line.
+Open up said PR and then that'll be when our review bots time to shine his cool.
+Okay, here we are.
+So it's just hoping that I'm just going to add everything.
+Let me make sure everything is staged.
+Yep, so everything is staged right now. So I'm just going to go ahead and run a commit.
+We'll see if it successfully runs our pre commit script as well.
+So it is there, but it's not set to execute both the moment.
+I can fix that shortly.
+But more later focused on getting this pushed up first.
+So we're going to get push.
+Get push origin on a reviewer.
+All right, sweet. So it looks like we have this happening going to go ahead and create a pull request.
+Cool. So that's what we're looking at right now.
+So let's go back and run this review.
+So we're going to review this PR for breaking changes, security concerns, and so on and so forth.
+All that cooks. Let me double check everything that we have going on in here.
+We do have an idea for CICD integration as well.
+But so like, let's go for some of the best practices broadly for this as well.
+Let me go back to my presentation.
+One moment, lovely people.
+Thank you so much for your patience with this.
+And we have over a thousand people watching live.
+So there's a lot of nice questions. By the way, folks, if you haven't sent your question yet, please do so.
+And we'll be answering that in the end very shortly.
+Yes. Yeah, I can only do so many things at once.
+So I will absolutely be addressing questions at the end as well.
+So cool. So the, oh, that's one of the prior versions that we were looking at.
+That's essentially for.
+Cool. So this is the pre commit hook example that we were working with earlier.
+And this is the GitHub PR viewer script that we are actively running at the moment in the background.
+We can at least theoretically look at the GitHub command as well.
+Or the GitHub commit as well, just to make sure that everything is running properly.
+And it should be a good time for everybody. Something included.
+Now, there's a couple of next steps that we can take as well.
+But let's make sure that we also go over some of the best practices, first and foremost.
+Main one is you want to start with small dips.
+Like, and this is just like a broad practice with software engineering generally.
+No one wants to review a 2000 line PR or a multi thousand line PR.
+And frankly, even AI tools like the top of the line once line once struggled to have all the context needed in order to review large PRs.
+So as the humans as with machines, keep them relatively small.
+It's, it's also important to be very specific in the prompts that you give.
+Try to prompt more like an engineer than a product manager, if you will.
+I say that someone who is water product manager title. So not hating, not hating, but just giving broad guidance.
+The other thing is you want to make sure that you test thoroughly before you implement any sort of automation.
+There's no reason to drive up your infrastructure costs for functionality that is half-baked at best.
+The appropriate having appropriate review types is important as well, because we always, always, always want to make sure that we this kind of goes back to what we were saying before, but we want to give the necessary context for those types of reviews.
+A style review does not have the same considerations as mind in mind as a security review, right.
+Keeping API costs in mind is important as well. And of course, just like with any other AI tool, you should not blindly trust AI, always ensure that you're enhancing a human mind versus replacing a human mind.
+Some of the don'ts, of course, include general best practices as well, like please don't send sensitive code to cloud APIs.
+If you're working for the DOD, make sure that you're using it on the premise solution.
+For example, trusting AI blindly is not the move as well.
+You're not to replace humans entirely with AI code review processes. It's important that you bear in mind exactly what you're trying to do and convey with all of this.
+And then of course, just make sure you don't over automate without testing. Testing is great. Testing is wonderful. Testing keeps us all honest.
+So cool. What we've done today is we've installed and configured the client CLI. We've played around with YOLO mode, which honestly just takes out a lot of the interactivity and it really just lets us start ripping through for idea of different tasks.
+We have built a working code review bot that exists within our terminal. We can double check and take the last steps needed to also push those reviews to GitHub, because that just feels like a real code review at that point.
+And we've learned multiple real review strategies, mostly in terms of security, style and consistency more than anything else.
+And we've looked into real world integrations. So surprisingly little time that we create a production ready review script, which I will be pushing to GitHub as well so you folks can take a look at what's going on as well.
+And I'll also make sure that I update the read me with all the necessary steps to cover everything that I showed today as well as any other pieces that we've very much glazed over in the short window of time that we got to spend together.
+We have a few more ideas for CICD integrations as well. I'd be more than happy to provide resources on that. And we can provide assistance to help build more automation tools as well.
+We have a couple of challenge projects in mind as well that we'd really, really love to see folks work on as well.
+I personally love to see an email notification for critical issues as well, kind of like a dependable, but an AI designed one, perhaps some sort of review summary aggregators as well.
+It would be very, very interesting review templates for one's team is quite nice as well. We actually have that within Klein for pretty much any code review that you do provide.
+There is a general expected template for that sort of information. If you're looking for something a bit more meaty, if you will, I would say trying to integrate with JIRA or linear.
+When I was a previous company, there is this idea of essentially creating an end to end linear about using multiple Klein instances to essentially, here's the idea, one would essentially create an idea of like what tests would fulfill the particular requirement of the linear about one instance would be working on implementing the code changes.
+And then one instance would be testing the final implementation as well as doing the integration testing is a really interesting project and the crazy part is it was not that complex to build.
+I think that took a pair of engineers about two days to end build the whole thing, fully tested and everything like that start to get met up.
+Anyways, so another thing would be a Slackbot for review notifications. One of the big challenges with reviews is of course the human bottleneck aspect of it.
+It takes a lot of focus and concentration to give an earnest thorough review to code. And it's sometimes it helps just to have a little reminder every now and then.
+So we have a few ideas for advanced challenges as well. I would personally really love to see a review quality scoring, but to help motivate folks to provide more adequate and awesome reviews for folks.
+I would personally love to see a code health dashboard as well that gives some idea of maybe test coverage as well as security quality or maybe even heck it can even be really fun to see if there's any kind of style issues or style considerations that need to be factored in as well.
+Personally, I would really just love to see review a feedback loop implemented as well so that there's any sort of code quality or security issues that do emerge that the user can be alerted about them in an actionable and awesome way.
+Anyways, we would love love love to see your creations that you cook up and yeah tag client on Twitter or post in our discord if you're wanting to see or have ideas for further projects.
+I think we can probably take some time for questions if that works for you.
+Awesome. Cool. Let me just take a look at folks. This is the time if you want to ask questions to Tony. This is the time. So please ask your questions.
+Someone is saying will I get certificates? Yes, everyone who submits a project will get a certificate of participation. We all love, you know, we all love that. All right, let me see. Let me see. There's just so many chats. I have to.
+Yes, you can just register by filling the Google form. What time is it in London? It is 5 p.m. It feels later because now the days are short.
+What is the theme of the hackathon? You can build anything you want. There isn't a problem statement. You just have to use the sponsor tools. You can use as many tools as you want and you can even apply to all the tracks if you want.
+Yes, you can still register. You can register anytime this week. Some people have their end semester exams going on and they're still taking part. So that's I love the dedication.
+Can someone win win all the prices? You can definitely increase your chances by using all the sponsor tools and applying for every single track. It's not fun if every one person wins all the prizes.
+We will try to give a one price to one team. I think that the term for winning all the prizes is going full Thanos.
+Is it okay if I don't have a knowledge of AI concepts? Is that fine? Tony, you want to take that?
+Absolutely. Well, that's the wonderful thing about a lot of tools such as Klein is that you can really take your idea a lot further. Even just using the client CLI, you can straight up talk to it like you would a friend or an engineer that you want to implement this idea.
+There is a place in this world for the idea guys.
+Yeah. Can someone combine agent projects? Yes.
+All the other information that you're asking like judging criteria and stuff, it's all on the website.
+So if you can, if you have any more technical questions about client, that would be great.
+There are quite a lot. Let me just scroll down.
+I was having initial setup of Klein, having some issue with token. You can join the client, client community. You can ask your question in the we make their discord as well.
+I'll be watching the discord and I'm happy to walk folks through the setup process. No problem.
+What do you think of this idea?
+Interesting. I do like that idea honestly. It would be kind of fun if I gave it like a percentage confidence score as well.
+Like I am like 85% sure this code is fine to deploy or something like that. I do I like the idea though.
+Okay, let me just scroll to the bottom. Did we get free credits to use Klein?
+You don't need, you don't need, I mean you can use the free version.
+Yes, we actually have a couple of free stealth models, including microwave out right now that are completely free to use.
+So no problem on that side of things.
+Yes, you can use the VS code extension.
+It'd be fine. Yeah. That's that's not a little choice as well.
+Where to submit the project. If you have registered, I will email you. I will share it on socials. I will share it in discord and I will share it on my personal social so you can't miss it.
+Don't worry.
+Is this like code codeium?
+To know what that is.
+Let's say that it's not too dissimilar, but the main thing that I really like about Klein is that it's open source.
+You can choose a variety of different providers of variety of different models, including models by folks that some might call us competitors.
+So like we which really just like try to make these tools accessible and useful for a variety of folks.
+How do you verify that a participant genuinely used Klein in their project?
+Because their project will be awesome.
+Can I operate Klein on real time logs stream?
+That shouldn't be a problem. I assume that means like integrating with some tools such as graphana or something like that.
+That would actually be a really interesting project as well as like having some kind of ingest server that with an instance of Klein running anyways.
+Question for Tony. Can the bot invoke get blame to see who lost us the line?
+And if so, do you redraw email addresses to say GDPR clean, public wrappers?
+And this particular example, it was a super, super rudimentary version of that, but yes, that's absolutely possible.
+And you're right, that's probably a good idea as well for GDPR compliance.
+Klein must be used to build capabilities on top of the CLI.
+Yeah, you have to use Klein CLI.
+And it's quite cool. I'm going to like it.
+It could even just be like a very simple code review bot or something that provides recommendations for features.
+Also, take inspiration. Don't feel like you're blocked in.
+The clients CLI is an incredibly powerful and diverse tool. And there's quite a bit that you can do with it.
+Yeah, absolutely. All right, we're a little over time. So just to respect everyone's time, people are now just sending error logs in the chat.
+Not the best way to do it because we are on YouTube right now.
+Send it in Discord in the questions channel, and we'll take a look.
+And help each other out as well. That's what we see people do during our hackathens at least.
+And yeah, go for it. One last question I'll take.
+What's the advice for first time hackathon for non-computer science folks?
+I mean, use AI tools to code. I think it's fine. Vibe coding is fine. It's all right.
+There's a lot of stuff that you can win already. Check out the GitHub repository, check out all the resources.
+Literally everything you need can be found on the website. I've made so much efforts to put it on the website.
+But yeah, check out Klein. Go start the GitHub repository. Join the Discord channel.
+If you haven't registered already, register on VMIG.S.org. We have 5,000 people registered. So it's going to be a lot of fun.
+Have fun. Meet each other. Keep your active in Discord. Tony, any closing remarks?
+Uh, solve a problem that feels real to you.
+Yeah, cool. Good one. Thanks, Tony. Thanks, everyone. Have a great day. We'll see you around. Bye.
+Take care.

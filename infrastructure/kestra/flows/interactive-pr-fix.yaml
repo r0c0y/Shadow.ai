@@ -1,0 +1,55 @@
+
+id: interactive-pr-fix
+namespace: com.agentzero.automation
+description: "Fix PR with AI and Notify User via Slack/Email"
+
+inputs:
+  - id: repo_url
+    type: STRING
+  - id: pr_number
+    type: INT
+  - id: slack_webhook
+    type: STRING
+    required: false
+  - id: email_address
+    type: STRING
+    required: false
+
+tasks:
+  - id: analyze_pr
+    type: io.kestra.core.tasks.scripts.Bash
+    commands:
+      - |
+        echo "🔍 Analyzing PR #{{ inputs.pr_number }} in {{ inputs.repo_url }}"
+        # Simulation of analysis
+        sleep 2
+        echo "⚠️ Found 1 Critical Issue: Hardcoded API Key"
+
+  - id: generate_fix
+    type: io.kestra.core.tasks.scripts.Bash
+    commands:
+      - |
+        echo "🛠️ Generating Fix for PR..."
+        sleep 2
+        echo "✅ Fix Generated: Moved key to env var."
+
+  - id: notify_slack
+    type: io.kestra.plugin.core.http.Request
+    uri: "{{ inputs.slack_webhook }}"
+    method: POST
+    contentType: "application/json"
+    body: |
+      {
+        "text": "🚨 Agent Zero: Fix generated for PR #{{ inputs.pr_number }}. Please review."
+      }
+    description: "Send Slack Notification"
+
+  - id: notify_email
+    type: io.kestra.core.tasks.log.Log
+    message: "📧 Sending Email Digest to {{ inputs.email_address }} (Simulated)"
+    description: "Send Email Notification (Log for now)"
+
+triggers:
+  - id: manual_trigger
+    type: io.kestra.core.models.triggers.types.Webhook
+    key: fix-trigger

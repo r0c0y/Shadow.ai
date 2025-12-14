@@ -1,0 +1,211 @@
+/* Agent Zero Content Script Styles */
+/* Injected into GitHub/GitLab pages */
+
+.agent-zero-mcs-badge {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  z-index: 9999;
+}
+
+.agent-zero-badge-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.agent-zero-actions {
+  border-top: 1px solid #d1d5db;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.agent-zero-action-btn {
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.agent-zero-action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agent-zero-explain-btn {
+  font-family: inherit;
+  z-index: 1000;
+}
+
+.agent-zero-explain-btn:hover {
+  background: #3b82f6 !important;
+  color: white !important;
+  transform: scale(1.1);
+}
+
+.agent-zero-sidebar {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  backdrop-filter: blur(10px);
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%) translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+.agent-zero-sidebar-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.agent-zero-sidebar-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.agent-zero-sidebar-content h5 {
+  margin: 12px 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.mcs-score-large {
+  font-size: 32px;
+  font-weight: bold;
+  color: #3b82f6;
+  text-align: center;
+  margin: 8px 0;
+}
+
+.mcs-status {
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.mcs-breakdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+.mcs-breakdown li {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mcs-breakdown li:last-child {
+  border-bottom: none;
+}
+
+.agent-zero-tooltip {
+  font-family: inherit;
+  white-space: pre-line;
+  animation: fadeInUp 0.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.agent-zero-notification {
+  font-family: inherit;
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* GitHub-specific overrides */
+.gh-header-meta .agent-zero-mcs-badge {
+  margin-left: 8px;
+}
+
+/* GitLab-specific overrides */
+.detail-page-header-actions .agent-zero-mcs-badge {
+  margin-right: 8px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .agent-zero-sidebar {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+  
+  .agent-zero-sidebar-header {
+    background: #111827;
+    border-color: #374151;
+  }
+  
+  .mcs-score-large {
+    color: #60a5fa;
+  }
+  
+  .mcs-breakdown li {
+    border-color: #374151;
+  }
+  
+  .agent-zero-tooltip {
+    background: #374151;
+    color: #f9fafb;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .agent-zero-badge-container {
+    border-width: 2px;
+  }
+  
+  .agent-zero-action-btn {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .agent-zero-mcs-badge,
+  .agent-zero-action-btn,
+  .agent-zero-explain-btn,
+  .agent-zero-sidebar,
+  .agent-zero-tooltip,
+  .agent-zero-notification {
+    animation: none;
+    transition: none;
+  }
+  
+  .agent-zero-badge-container:hover,
+  .agent-zero-action-btn:hover,
+  .agent-zero-explain-btn:hover {
+    transform: none;
+  }
+}

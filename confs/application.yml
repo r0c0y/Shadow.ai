@@ -1,0 +1,10 @@
+
+kestra:
+  server:
+    port: 8080
+    basic-auth:
+      enabled: false
+  plugins:
+    local:
+      path: ./plugins
+
