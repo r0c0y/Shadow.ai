@@ -55,11 +55,11 @@ cd agent-zero
 ### 2. Install Dependencies
 ```bash
 # Dashboard
-cd agent-zero/dashboard
+cd dashboard
 npm install
 
 # Extension
-cd ../../chrome-extension
+cd ../chrome-extension
 npm install
 ```
 
@@ -72,7 +72,7 @@ npm run build
 
 ### 4. Run Dashboard
 ```bash
-cd agent-zero/dashboard
+cd ../dashboard
 npm run dev
 # Open http://localhost:3000
 ```
