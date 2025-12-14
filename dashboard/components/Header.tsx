@@ -17,6 +17,7 @@ export default function Header() {
                     </div>
                     <input
                         type="text"
+                        suppressHydrationWarning
                         className="block w-full pl-10 pr-3 py-2 border border-white/5 rounded-lg leading-5 bg-white/5 text-zinc-300 placeholder-zinc-500 focus:outline-none focus:bg-white/10 focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 sm:text-sm transition-all duration-200"
                         placeholder="Search documentation..."
                     />
