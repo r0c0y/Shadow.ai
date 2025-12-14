@@ -16,3 +16,4 @@ infrastructure/mongo-data/
 # System
 .DS_Store
 .env
+kestra
