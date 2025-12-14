@@ -17,3 +17,4 @@ infrastructure/mongo-data/
 .DS_Store
 .env
 kestra
+.env.local
