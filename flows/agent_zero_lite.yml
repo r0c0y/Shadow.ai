@@ -12,7 +12,7 @@ inputs:
 
 tasks:
   - id: log_payload
-    type: io.kestra.core.tasks.log.Log
+    type: io.kestra.plugin.core.log.Log
     message: |
       🚀 Agent Zero (Lite) Activated!
       Repo: {{ inputs.repository }}
@@ -79,7 +79,7 @@ tasks:
       Kestra.outputs({"mcs": mcs_score, "status": status, "reasoning": reasoning})
 
   - id: decision_switch
-    type: io.kestra.core.tasks.flows.Switch
+    type: io.kestra.plugin.core.flow.Switch
     value: "{{ outputs.calculate_mcs.vars.status }}"
     cases:
       NEEDS_REVIEW:
@@ -141,5 +141,5 @@ tasks:
 
 triggers:
   - id: manual_trigger
-    type: io.kestra.core.models.triggers.types.Webhook
+    type: io.kestra.plugin.core.trigger.Webhook
     key: "github-trigger"
