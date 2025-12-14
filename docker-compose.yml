@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # 1. Mission Control (Dashboard)
+  dashboard:
+    build:
+      context: .
+      dockerfile: dashboard/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/agent-zero
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=hackathon-secret-key
+    depends_on:
+      - mongo
+    networks:
+      - agent-network
+
+  # 2. Memory Bank (Database)
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - agent-network
+
+  # 3. Nervous System (Kestra)
+  kestra:
+    image: kestra/kestra:latest
+    ports:
+      - "8080:8080"
+    environment:
+      KESTRA_CONFIGURATION: |
+        kestra:
+          server:
+            basic-auth:
+              enabled: false
+    volumes:
+      - ./flows:/opt/kestra/flows
+    networks:
+      - agent-network
+
+networks:
+  agent-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
