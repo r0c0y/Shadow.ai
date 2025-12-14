@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Search, Command, Bell } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 
@@ -34,13 +35,13 @@ export default function Header() {
                     <span className="absolute top-2 right-2 w-2 h-2 bg-emerald-500 rounded-full border-2 border-black"></span>
                 </button>
                 <div className="h-4 w-px bg-white/10"></div>
-                <div className="flex items-center gap-3">
+                <Link href="/profile" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                     <div className="text-right hidden sm:block">
                         <div className="text-sm font-medium text-zinc-200">Admin User</div>
                         <div className="text-xs text-zinc-500">Workspace Owner</div>
                     </div>
                     <div className="h-8 w-8 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 border border-white/10"></div>
-                </div>
+                </Link>
             </div>
         </header>
     );
